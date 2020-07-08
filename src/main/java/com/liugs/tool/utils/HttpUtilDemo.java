@@ -45,7 +45,6 @@ public class HttpUtilDemo {
         //apache  httpClient4.5
 //        httpClientPost(path, paraMap, msg);
         testEnum();
-
     }
 
     /**
