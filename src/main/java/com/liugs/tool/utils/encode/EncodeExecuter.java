@@ -77,7 +77,7 @@ public class EncodeExecuter {
      * @author liugs
      * @date 2020/7/8 17:57:07
      */
-    public static String privateDecode(String encodeStr, String privateKeyStr) throws Exception{
+    public static String privateDecode(String privateKeyStr, String encodeStr) throws Exception{
         //还原私钥
         PrivateKey privateKey = RsaEncodeTool.restorePrivateKey(privateKeyStr);
         //RSA解密
@@ -86,7 +86,7 @@ public class EncodeExecuter {
         return result;
     }
 
-    public static String publicDeCode(String encodeStr, String publicKeyStr) throws Exception {
+    public static String publicDeCode( String publicKeyStr, String encodeStr) throws Exception {
         //还原公钥
         PublicKey publicKey = RsaEncodeTool.restorePublicKey(publicKeyStr);
         //RSA解密

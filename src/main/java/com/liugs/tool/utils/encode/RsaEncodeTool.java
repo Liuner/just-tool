@@ -1,15 +1,19 @@
 package com.liugs.tool.utils.encode;
 
 import com.alibaba.fastjson.JSONObject;
+import com.liugs.tool.constants.ToolConstants;
 import org.apache.commons.codec.binary.Base64;
+
 import javax.crypto.Cipher;
 import java.io.ByteArrayOutputStream;
 import java.security.*;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
+import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 /**
  * @ClassName RsaEncodeTool
@@ -28,13 +32,6 @@ public class RsaEncodeTool {
 
     /**RSA最大解密密文大小*/
     private static final int MAX_DECRYPT_BLOCK = 128;
-
-    /**公钥*/
-    private static final String PUBLIC_KEY = "publicKey";
-    /**私钥*/
-    private static final String PRIVATE_KEY = "privateKey";
-
-
 
     /**
      * 描述 生成公钥和私钥 public 公钥(RSAPublicKey) private 私钥(RSAPrivateKey)
@@ -65,13 +62,13 @@ public class RsaEncodeTool {
         //私钥 字符串
         String privateKeyStr = new String(Base64.encodeBase64(privateKey.getEncoded()));
 
-        keyMap.put(PUBLIC_KEY, publicKeyStr);
-        keyMap.put(PRIVATE_KEY, privateKeyStr);
+        keyMap.put(ToolConstants.EncodeConstants.PUBLIC_KEY, publicKeyStr);
+        keyMap.put(ToolConstants.EncodeConstants.PRIVATE_KEY, privateKeyStr);
         return keyMap;
     }
 
     /**
-     * 描述 还原公钥
+     * 描述 还原公钥 X509EncodedKeySpec 用于构建公钥的规范
      * @param publicKeyStr
      * @return java.security.PublicKey
      * @author liugs
@@ -85,16 +82,16 @@ public class RsaEncodeTool {
     }
 
     /**
-     * 描述 还原私钥
+     * 描述 还原私钥 PKCS8EncodedKeySpec 用于构建私钥的规范
      * @param privateStr
      * @return java.security.PublicKey
      * @author liugs
      * @date 2020/7/8 17:47:24
      */
     public static PrivateKey restorePrivateKey(String privateStr) throws Exception {
-        X509EncodedKeySpec keySpec = new X509EncodedKeySpec(Base64.decodeBase64(privateStr));
-        KeyFactory keyFactory = KeyFactory.getInstance(KEY_ALGORITHM);
-        PrivateKey privateKey = keyFactory.generatePrivate(keySpec);
+        PKCS8EncodedKeySpec pkcs8EncodedKeySpec = new PKCS8EncodedKeySpec(Base64.decodeBase64(privateStr));
+        KeyFactory factory = KeyFactory.getInstance(KEY_ALGORITHM);
+        PrivateKey privateKey = factory.generatePrivate(pkcs8EncodedKeySpec);
         return privateKey;
     }
 
@@ -171,6 +168,24 @@ public class RsaEncodeTool {
         byte[] decryptedData = out.toByteArray();
         out.close();
         return decryptedData;
+    }
+
+    /**
+     * 描述 获取随机字符串
+     * @param length
+     * @return java.lang.String
+     * @author liugs
+     * @date 2020/7/9 10:02:54
+     */
+    public static String getRandomStringByLength(int length) {
+        String base = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        Random random = new Random();
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < length; i++) {
+            int number = random.nextInt(base.length());
+            sb.append(base.charAt(number));
+        }
+        return sb.toString();
     }
 
 

@@ -1,4 +1,4 @@
-package com.liugs.tool.utils;
+package com.liugs.tool.utils.http;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.client.config.RequestConfig;
