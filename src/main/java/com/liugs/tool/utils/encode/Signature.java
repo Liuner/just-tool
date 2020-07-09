@@ -38,7 +38,6 @@ public class Signature {
         System.out.println("签名时，排序的字符串为：" + content);
         //获取签名
         String signStr = doSign(content, "UTF-8");
-        System.out.println("签名为：" + signStr);
         return signStr;
     }
 

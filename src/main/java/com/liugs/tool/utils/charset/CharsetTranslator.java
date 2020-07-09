@@ -1,4 +1,4 @@
-package com.liugs.tool.utils;
+package com.liugs.tool.utils.charset;
 
 import cn.hutool.core.io.FileUtil;
 

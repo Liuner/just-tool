@@ -33,26 +33,45 @@ public class ToolTest {
 
         String publicKey = keyMap.get(ToolConstants.EncodeConstants.PUBLIC_KEY);
         String privateKey = keyMap.get(ToolConstants.EncodeConstants.PRIVATE_KEY);
-        System.out.println("publicKey：" + publicKey);
-        System.out.println("privateKey：" + privateKey);
+        console("publicKey：" + publicKey);
+        console("privateKey：" + privateKey);
         //获取一个签名Key
         String signKey = RsaEncodeTool.getRandomStringByLength(32);
         //待加密对象
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("name", "liugs");
+        jsonObject.put("name", "tester");
         jsonObject.put("age", "100");
         jsonObject.put("sex", "man");
         String resourceStr = jsonObject.toJSONString();
 
+        console("==================公钥加密，私钥解密==================");
         //公钥加密串
         String encodeStr = EncodeExecuter.publicEncode(publicKey, resourceStr, signKey);
-        System.out.println("encodeStr：" + encodeStr);
-
+        console("encodeStr：" + encodeStr);
         //私钥解密
         String decodeStr = EncodeExecuter.privateDecode(privateKey, encodeStr);
-        System.out.println("decodeStr：" + decodeStr);
+        console("decodeStr：" + decodeStr);
+
+        console("==================私钥加密，公钥解密==================");
+        //私钥加密
+        String encodeStrByPriKey = EncodeExecuter.privateEncode(privateKey, resourceStr, signKey);
+        console("encodeStrByPriKey：" + encodeStrByPriKey);
+        //公钥解密
+        String decodeStrByPubKey = EncodeExecuter.publicDeCode(publicKey, encodeStrByPriKey);
+        console("decodeStrByPubKey：" + decodeStrByPubKey);
 
         //校验签名
-        System.out.println(EncodeExecuter.validateSign(decodeStr, signKey));
+        console(EncodeExecuter.validateSign(decodeStr, signKey));
+    }
+
+    /**
+     * 描述 打印
+     * @param obj
+     * @return void
+     * @author liugs
+     * @date 2020/7/9 10:31:10
+     */
+    private static void console(Object obj) {
+        System.out.println(obj);
     }
 }
