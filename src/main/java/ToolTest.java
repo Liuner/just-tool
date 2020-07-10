@@ -3,6 +3,7 @@ import com.liugs.tool.constants.ToolConstants;
 import com.liugs.tool.utils.encode.EncodeExecuter;
 import com.liugs.tool.utils.encode.RsaEncodeTool;
 
+import java.math.BigDecimal;
 import java.util.Map;
 
 /**
@@ -14,11 +15,12 @@ import java.util.Map;
 public class ToolTest {
 
     public static void main(String[] args) {
-        try {
-            enCode();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//            enCode();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+        dealNum();
     }
 
     /**
@@ -60,6 +62,21 @@ public class ToolTest {
 
         //校验签名
         console(EncodeExecuter.validateSign(decodeStr, signKey));
+    }
+
+    /**
+     * 描述 金额单位转换，及保留位数
+     * @return void
+     * @author liugs
+     * @date 2020/7/10 9:36:14
+     */
+    private static void dealNum() {
+        BigDecimal yuan = new BigDecimal(1);
+        BigDecimal wan = yuan.divide(new BigDecimal(10000), 2, BigDecimal.ROUND_DOWN);
+        BigDecimal fen = yuan.multiply(new BigDecimal(100)).divide(BigDecimal.ONE, 2, BigDecimal.ROUND_DOWN);
+        console("元：" + yuan);
+        console("万：" + wan);
+        console("分：" +fen);
     }
 
     /**
