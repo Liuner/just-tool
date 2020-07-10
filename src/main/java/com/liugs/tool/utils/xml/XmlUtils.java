@@ -13,8 +13,6 @@ import java.nio.charset.StandardCharsets;
  * @Description XML工具类
  * @Author liugs
  * @Date 2019/7/17 11:25:12
- * @Copyright 2019 www.tydic.com Inc. All rights reserved.
- * 注意 本内容仅限于北京天源迪科信息技术有限公司内部传阅，禁止外泄以及用于其他商业目的
  */
 public class XmlUtils {
     /**
