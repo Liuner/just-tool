@@ -47,9 +47,9 @@ public class Console {
     private static void getTime() {
         Date nowTime = new Date();
 
-//        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss,SSS");
 //        timeStr = dateFormat.format(nowTime);
 
-        timeStr = new DateTime(nowTime).toString("yyyy-MM-dd HH:mm:ss");
+        timeStr = new DateTime(nowTime).toString("yyyy-MM-dd HH:mm:ss,SSS");
     }
 }
