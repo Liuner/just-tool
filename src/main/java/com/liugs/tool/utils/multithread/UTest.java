@@ -14,8 +14,13 @@ import java.util.concurrent.*;
 public class UTest {
     public static void main(String[] args) {
 
-        //创建线程池对象  参数5，代表有5个线程的线程池
         ThreadFactory namedThreadFactory = new ThreadFactoryBuilder().setNamePrefix("demo-pool-").build();
+        /**
+         * 1.corePoolSize：向线程池中添加任务时，如果线程池中已创建的线程数小于corePoolSize，
+         *   即使有空线程，也会创建新的线程来执行该任务，直到线程数大于或等于corePoolSize
+         * 2.
+         */
+
         //Common Thread Pool
         ExecutorService pool = new ThreadPoolExecutor(2, 20,
                 0L, TimeUnit.MILLISECONDS,
