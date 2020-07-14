@@ -16,7 +16,7 @@ public class SellingTickets implements Runnable {
     @Override
     public void run() {
         while (tickets > 0) {
-            synchronized (this) {
+            synchronized (tickets) {
                 Console.show(Thread.currentThread().getName() + " is selling，" + "There are " + --tickets + " tickets left.");
             }
             //买完一张就睡，让其他线程也买，不然执行太快看不出效果😄
