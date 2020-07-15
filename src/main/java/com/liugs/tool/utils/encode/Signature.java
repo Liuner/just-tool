@@ -9,8 +9,8 @@ import java.util.*;
 
 /**
  * @ClassName: Signature
- * @Description：EMS签名 + 报文体拼装
- * @Author: liuguisheng
+ * @Description：签名 + 报文体拼装
+ * @Author: liugs
  * @Date: 2019/6/10 14:07:10
  */
 public class Signature {
