@@ -1,5 +1,6 @@
 import com.alibaba.fastjson.JSONObject;
 import com.liugs.tool.constants.ToolConstants;
+import com.liugs.tool.constants.ToolException;
 import com.liugs.tool.utils.encode.EncodeExecuter;
 import com.liugs.tool.utils.encode.RsaEncodeTool;
 
@@ -15,12 +16,25 @@ import java.util.Map;
 public class ToolTest {
 
     public static void main(String[] args) {
-//        try {
-//            enCode();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-        dealNum();
+        /*try {
+            enCode();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }*/
+
+        /*dealNum();*/
+
+        ToolExceptionTest();
+
+    }
+
+    /**
+     * 描述 测试异常类
+     * @author liugs
+     * @date 2020/7/16 11:02:49
+     */
+    private static void ToolExceptionTest() {
+        throw new ToolException("1000001", "错误");
     }
 
     /**
