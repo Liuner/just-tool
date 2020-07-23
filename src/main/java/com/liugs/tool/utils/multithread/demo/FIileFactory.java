@@ -44,5 +44,6 @@ public class FIileFactory {
         pool.submit(fileConsume);
         pool.submit(fileConsume2);
 
+        pool.shutdown();
     }
 }

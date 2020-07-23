@@ -28,7 +28,7 @@ public class FileConsume implements Runnable {
                 FileCarry fileCarry = this.linkedTransferQueue.take();
                 Console.show("消费者线程（" + currentThread.getName() + "）取得fileCarry.index = " + fileCarry.getIndex() +
                         "："+ fileCarry.getContent());
-                Thread.sleep(1000);
+//                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace(System.out);
             }
