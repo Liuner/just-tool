@@ -1,11 +1,13 @@
 import com.alibaba.fastjson.JSONObject;
+import com.liugs.tool.constants.Console;
 import com.liugs.tool.constants.ToolConstants;
 import com.liugs.tool.constants.ToolException;
 import com.liugs.tool.utils.encode.EncodeExecuter;
 import com.liugs.tool.utils.encode.RsaEncodeTool;
+import org.joda.time.DateTime;
 
 import java.math.BigDecimal;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @ClassName ToolTest
@@ -24,8 +26,86 @@ public class ToolTest {
 
         /*dealNum();*/
 
-        ToolExceptionTest();
+        dealListSort();
 
+        /*Date time = new Date();
+        Console.show(new DateTime(time).toString("yyyy年MM月dd日HH时mm分ss秒"));
+
+        String content = "【中核集团电子商城】您好，您有一个新的订单ORDER_NO于TIME提起审批，请在7个自然日内进行审核，逾期预占供应商库存、锁定价格将自动释放，订单自动进入关闭状态。更多信息请打开中核集团电子商城查看审批进度，网址：URL。";
+        content = content.replace("ORDER_NO", "182382383");
+        content = content.replace("TIME", new DateTime(time).toString("yyyy年MM月dd日HH时mm分ss秒"));
+        Console.show(content);*/
+
+//        ToolExceptionTest();
+
+    }
+
+    /**
+     * 描述 list排序
+     * @author liugs
+     * @date 2020/7/29 10:51:04
+     */
+    private static void dealListSort() {
+        DateTime date = new DateTime();
+        Console.show(date);
+
+        ListDemo demo1 = new ListDemo();
+        demo1.setDateTime(date.toDate());
+        demo1.setIndex(1);
+        ListDemo demo2 = new ListDemo();
+        demo2.setDateTime(date.plusDays(1).toDate());
+        demo2.setIndex(2);
+        ListDemo demo3 = new ListDemo();
+        demo3.setDateTime(date.plusHours(2).toDate());
+        demo3.setIndex(3);
+
+        List<ListDemo> listDemos = new ArrayList<>();
+        listDemos.add(demo1);
+        listDemos.add(demo2);
+        listDemos.add(demo3);
+
+        Console.show("==========before sort=========");
+        for (ListDemo demo : listDemos) {
+            Console.show("index：" + demo.getIndex() + ", dateTime：" + new DateTime(demo.getDateTime()).toString("yyyy年MM月dd日HH时mm分ss秒"));
+        }
+
+        Collections.sort(listDemos, (o1, o2) -> {
+            if (o1.getDateTime().before(o2.getDateTime())) {
+                return 1;
+            } else if (o1.getDateTime().equals(o2.getDateTime())) {
+                return 0;
+            }
+            return -1;
+        });
+
+        Console.show("==========after sort=========");
+       for (ListDemo demo : listDemos) {
+           Console.show("index：" + demo.getIndex() + ", dateTime：" + new DateTime(demo.getDateTime()).toString("yyyy年MM月dd日HH时mm分ss秒"));
+       }
+    }
+
+    /**
+     * list 排序demo
+     */
+    private static class ListDemo {
+        public Date dateTime;
+        public Integer index;
+
+        public Date getDateTime() {
+            return dateTime;
+        }
+
+        public void setDateTime(Date dateTime) {
+            this.dateTime = dateTime;
+        }
+
+        public Integer getIndex() {
+            return index;
+        }
+
+        public void setIndex(Integer index) {
+            this.index = index;
+        }
     }
 
     /**
