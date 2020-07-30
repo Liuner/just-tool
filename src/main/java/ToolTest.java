@@ -26,15 +26,7 @@ public class ToolTest {
 
         /*dealNum();*/
 
-        dealListSort();
-
-        /*Date time = new Date();
-        Console.show(new DateTime(time).toString("yyyy年MM月dd日HH时mm分ss秒"));
-
-        String content = "【中核集团电子商城】您好，您有一个新的订单ORDER_NO于TIME提起审批，请在7个自然日内进行审核，逾期预占供应商库存、锁定价格将自动释放，订单自动进入关闭状态。更多信息请打开中核集团电子商城查看审批进度，网址：URL。";
-        content = content.replace("ORDER_NO", "182382383");
-        content = content.replace("TIME", new DateTime(time).toString("yyyy年MM月dd日HH时mm分ss秒"));
-        Console.show(content);*/
+//        dealListSort();
 
 //        ToolExceptionTest();
 
