@@ -15,7 +15,7 @@ public class SellingTickets implements Runnable {
 
     @Override
     public void run() {
-        while (tickets > 0) {
+        while (tickets > 1) {
             synchronized (tickets) {
                 Console.show(Thread.currentThread().getName() + " is selling，" + "There are " + --tickets + " tickets left.");
             }
