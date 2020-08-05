@@ -32,6 +32,12 @@ public class FIileFactory {
             FileInputStream fileInputStream = new FileInputStream(file);
             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "GBK");
             reader = new BufferedReader(inputStreamReader);
+
+            //使用Resource来获取InputStream
+            /*Resource resource = new ClassPathResource("application.properties");
+            InputStream inputStreamReader1 = resource.getInputStream();
+            InputStreamReader inputStreamReader2 = new InputStreamReader(inputStreamReader1, "GBK");
+            reader = new BufferedReader(inputStreamReader2);*/
         } catch (IOException e) {
             e.printStackTrace();
         }
