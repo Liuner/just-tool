@@ -162,8 +162,9 @@ public class FileOption {
         InputStreamReader inputStreamReader = new InputStreamReader(System.in);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         String content = "";
+        System.out.print("输入'exit'退出");
         while (true) {
-            Console.show("please input：");
+            System.out.print("请输入：");
             content = bufferedReader.readLine();
             if ("exit".equals(content)) {
                 break;

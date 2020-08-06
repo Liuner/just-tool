@@ -27,7 +27,7 @@ public class Console {
     }
 
     /**
-     * 描述 答应后空行，windows
+     * 描述 打印后空行，windows
      * @param msg
      * @return void
      * @author liugs
