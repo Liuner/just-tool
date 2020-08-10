@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--	通过构造函数实现依赖注入   如果多参数时，注意参数顺序    -->
+    <bean id="beanProcess" class="com.liugs.tool.spring.bean.BeanProcess">
+        <constructor-arg index="0" ref="beanManager"/>
+        <constructor-arg index="1" ref="dITest"/>
+    </bean>
+
+<!--    如果你想要向一个对象传递一个引用，你需要使用 标签的 ref 属性，如果你想要直接传递值，那么你应该使用如上所示的 value 属性-->
+<!--    还可以通过type显示指定构造函数参数类型，以及通过index来指定构造函数参数索引-->
+<!--    <bean id="beanProcess" class="com.liugs.spring.bean.BeanProcess">-->
+<!--        <constructor-arg type="com.liugs.spring.bean.BeanManager" index="0" ref="beanManager"/>-->
+<!--        <constructor-arg  type="com.liugs.spring.bean.DITest" index="1" ref="dITest"/>-->
+<!--    </bean>-->
+
+<!--    通过setter方法完成依赖注入  注意:使用此方法的前提是要有set方法-->
+<!--    <bean id="beanProcess" class="com.liugs.spring.bean.BeanProcess">-->
+<!--        <property name="beanManager" ref="beanManager"/>-->
+<!--        <property name="diTest" ref="dITest"/>-->
+<!--    </bean>-->
+
+    <bean id ="beanManager" class="com.liugs.tool.spring.bean.BeanManager"/>
+
+    <bean id = "testBean" class="com.liugs.tool.spring.bean.TestBean"
+          init-method="init" destroy-method="destroy">
+        <property name="beanName" value="Hello Bean"/>
+    </bean>
+
+    <bean id="beanAbleImpl" class="com.liugs.tool.spring.bean.BeanAbleImpl"/>
+    <bean id ="dITest" class="com.liugs.tool.spring.bean.DITest"/>
+
+</beans>
