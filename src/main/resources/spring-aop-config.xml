@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">
+
+    <aop:aspectj-autoproxy/>
+
+<!--    <aop:config>
+        <aop:aspect id="" ref="aBean">
+&lt;!&ndash;    声明一个切入点        /&ndash;&gt;
+            <aop:pointcut id="businessService" expression="execution(* com.liugs.tool.spring.aop.*.*(..))"/>
+&lt;!&ndash;    方法前通知        &ndash;&gt;
+            <aop:before pointcut-ref="businessService" method=""/>
+&lt;!&ndash;    方法后通知        &ndash;&gt;
+            <aop:after pointcut-ref="businessService" method=""/>
+&lt;!&ndash;    方法返回成功后通知        &ndash;&gt;
+            <aop:after-returning pointcut-ref="businessService" method=""/>
+&lt;!&ndash;    方法抛出异常时通知        &ndash;&gt;
+            <aop:after-throwing pointcut-ref="businessService" method=""/>
+&lt;!&ndash;    方法前，方法后执行通知        &ndash;&gt;
+            <aop:around pointcut-ref="businessService" method=""/>
+
+
+        </aop:aspect>
+    </aop:config>-->
+
+<!--    <aop:config>
+        <aop:aspect id="log" ref="logging">
+&lt;!&ndash;    监听路径下的所有方法        &ndash;&gt;
+            <aop:pointcut id="selectAll" expression="execution(* com.liugs.tool.spring.aop.*.*(..))"/>
+&lt;!&ndash;    指定切入点为指定的方法        &ndash;&gt;
+&lt;!&ndash;            <aop:pointcut id="selectAll" expression="execution(* com.liugs.tool.spring.aop.ConfigAopDemo.getName(..))"/>&ndash;&gt;
+            <aop:before pointcut-ref="selectAll" method="beforeAdvice" />
+            <aop:after pointcut-ref="selectAll" method="afterAdvice" />
+            <aop:after-returning pointcut-ref="selectAll"  returning="obj" method="afterReturningAdvice" />
+            <aop:after-throwing pointcut-ref="selectAll"  throwing="ex" method="afterThrowingAdvice" />
+        </aop:aspect>
+    </aop:config>-->
+
+
+
+    <bean id="configAopDemo" class="com.liugs.tool.spring.aop.ConfigAopDemo">
+        <property name="name" value="MAX"/>
+        <property name="age" value="19"/>
+    </bean>
+
+    <bean id="logging" class="com.liugs.tool.spring.aop.Logging"/>
+
+</beans>
