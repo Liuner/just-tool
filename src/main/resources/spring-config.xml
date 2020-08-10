@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!--   可以使用注解  -->
+	<context:annotation-config/>
+
+
+<!-- bean的作用域
+     scope = "singleton" 在spring IoC容器仅存在一个Bean实例，Bean以单例方式存在，默认值
+	 scope = "prototype" 每次从容器中调用Bean时，都返回一个新的实例，即每次调用getBean()时，相当于执行newXxxBean()-->
+<!--	init-method: 指定在实例化bean时，调用该方法；destroy-method：从容器中移除bean之后，调用该方法-->
+	<bean id="myTestBean" class="com.liugs.tool.spring.MyTestBean"
+		  init-method="init" destroy-method="destroy" parent="beanTemplate">
+		<property name="name" value="Hello World!"/>
+	</bean>
+
+<!--&lt;!&ndash;	bean模板 用于测试bean的继承关系 &ndash;&gt;-->
+	<bean id="beanTemplate" abstract="true">
+		<property name="age" value="12" />
+		<property name="sex" value="man" />
+	</bean>
+
+	<bean class="com.liugs.tool.spring.InitTestBean" />
+
+</beans>
