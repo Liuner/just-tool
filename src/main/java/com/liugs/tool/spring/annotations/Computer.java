@@ -2,7 +2,8 @@ package com.liugs.tool.spring.annotations;
 
 
 import com.liugs.tool.constants.Console;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.annotation.Resource;
 
 /**
  * @ClassName Computer
@@ -15,7 +16,7 @@ public class Computer {
     private String brand;
     private String system;
 
-    @Autowired
+/*    @Autowired*/
     private Core core;
 
 /*    public Computer(Core core) {
@@ -28,10 +29,10 @@ public class Computer {
         this.core = core;
     }*/
 
-/*    @Resource
+    @Resource
     public void setCore(Core core) {
         this.core = core;
-    }*/
+    }
 
     public String getBrand() {
         return brand;

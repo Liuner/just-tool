@@ -18,7 +18,7 @@
     <bean id="carBean" class="com.liugs.tool.spring.autowire.CarBean" autowire="constructor">
         <constructor-arg index="1" value="99323443"/>
         <property name="brand" value="LAMBORGHINI"/>
-    </bean>
+    </bean>w
 
     <bean id="wheel" class="com.liugs.tool.spring.autowire.Wheel"/>
 
