@@ -30,6 +30,8 @@ public class ToolTest {
 
 //        ToolExceptionTest();
 
+        sort();
+
     }
 
     /**
@@ -60,6 +62,18 @@ public class ToolTest {
         for (ListDemo demo : listDemos) {
             Console.show("index：" + demo.getIndex() + ", dateTime：" + new DateTime(demo.getDateTime()).toString("yyyy年MM月dd日HH时mm分ss秒"));
         }
+
+        /*Collections.sort(listDemos, new Comparator<ListDemo>() {
+            @Override
+            public int compare(ListDemo o1, ListDemo o2) {
+                if (o1.getDateTime().before(o2.getDateTime())) {
+                    return 1;
+                } else if (o1.getDateTime().equals(o2.getDateTime())) {
+                    return 0;
+                }
+                return -1;
+            }
+        });*/
 
         Collections.sort(listDemos, (o1, o2) -> {
             if (o1.getDateTime().before(o2.getDateTime())) {
@@ -174,5 +188,38 @@ public class ToolTest {
      */
     private static void console(Object obj) {
         System.out.println(obj);
+    }
+
+
+    public static void sort() {
+     /*   List<String> strs = new ArrayList<>();
+        char[] chars = {'a', 'b', 'c', 'd'};
+        char[] target = new char[4];
+        for (int i = 0; i < 4; i ++) {
+            char first = chars[i];
+            for (int j = 0; j < 4; j ++) {
+                char second = chars[j];
+                if (first == second) {
+                    continue;
+                }
+                for (int k = 0; k < 4; k ++) {
+                    char third = chars[k];
+                    if (first == third || second == third) {
+                        continue;
+                    }
+                    for (int l = 0; l < 4; l ++) {
+                        char fouth = chars[l];
+                        if (first == fouth || second == fouth || third == fouth) {
+                            continue;
+                        }
+                        target[0]=first;
+                        target[1]=second;
+                        target[2]=third;
+                        target[3]=fouth;
+                        Console.show(new String(target));
+                    }
+                }
+            }
+        }*/
     }
 }
