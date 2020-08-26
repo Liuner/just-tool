@@ -56,6 +56,11 @@ public class FileCompare {
 
     }
 
+    /**
+     * 比较文件
+     * @param source
+     * @param target
+     */
     public static void compareFile(File source, File target) {
 
     }
