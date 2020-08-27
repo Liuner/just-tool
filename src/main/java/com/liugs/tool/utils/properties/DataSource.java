@@ -19,6 +19,8 @@ public class DataSource {
         encryptDbPassword();
 
         Console.show("公钥解密======================");
+        publicKey = "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAI9u0kNqSoNQw0kySTE6BVFOZv/XLbk6kSp25L+yZYz7ga0FP+KPsgS2fLJzHbkpNpZv9sHUWbQUb4j5e+Uh9B8CAwEAAQ==";
+        password = "RlkLbf0h97aABL0fgr0W5ZwRMVcdrBMuOIL0AA0YXUYnq62fHxVHpM+MsdqyG3XdpolIMvH+pVxc4zG0SGunug==";
         decryptDbPassword(publicKey, password);
     }
 
