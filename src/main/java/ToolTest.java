@@ -8,6 +8,7 @@ import org.joda.time.DateTime;
 
 import java.math.BigDecimal;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @ClassName ToolTest
@@ -221,5 +222,19 @@ public class ToolTest {
                 }
             }
         }*/
+    }
+
+    private static void listToMap() {
+        //将列表转为Map<key=name, value = Demo>
+        List<Demo> list = new ArrayList<>();
+        Map<String, Demo> relMap = list.stream().collect(Collectors.toMap(Demo::getName, retRelPo -> retRelPo));
+    }
+
+    private static class Demo {
+        private String name;
+
+        public String getName() {
+            return name;
+        }
     }
 }
