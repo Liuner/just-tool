@@ -1,7 +1,9 @@
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.liugs.tool.constants.Console;
 import com.liugs.tool.constants.ToolConstants;
 import com.liugs.tool.constants.ToolException;
+import com.liugs.tool.constants.ToolPropertiesKey;
 import com.liugs.tool.utils.encode.EncodeExecuter;
 import com.liugs.tool.utils.encode.RsaEncodeTool;
 import org.joda.time.DateTime;
@@ -31,7 +33,21 @@ public class ToolTest {
 
 //        ToolExceptionTest();
 
-        sort();
+//        sort();
+
+        test();
+    }
+
+    private static void test() {
+        /*String url = "http://172.16.100.36:18000/upload/cms/column/10001_banner/index.html";
+        String result = HttpUtil.get(url);
+        System.out.println("result:" + result);
+        JSONObject jsonObject = JSON.parseObject(result);
+
+        JSONArray rows = (JSONArray) jsonObject.get("rows");
+        System.out.println(rows);*/
+        Set<String> keySet = ToolPropertiesKey.getKeySet();
+        System.out.println(JSON.toJSONString(keySet));
 
     }
 
