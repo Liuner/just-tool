@@ -40,9 +40,6 @@ public class DataSource {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
-
     }
 
     private static void decryptDbPassword(String publicKey, String password) {

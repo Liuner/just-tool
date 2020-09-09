@@ -35,7 +35,9 @@ public class ToolTest {
 
 //        sort();
 
-        test();
+//        test();
+
+        listToMap();
     }
 
     private static void test() {
@@ -243,7 +245,25 @@ public class ToolTest {
     private static void listToMap() {
         //将列表转为Map<key=name, value = Demo>
         List<Demo> list = new ArrayList<>();
+        Demo demo = new Demo();
+        demo.setName("ceshi");
+        list.add(demo);
+
+        Demo demo2 = new Demo();
+        demo2.setName("ceshi2");
+        list.add(demo2);
+
+        //list 转 map
         Map<String, Demo> relMap = list.stream().collect(Collectors.toMap(Demo::getName, retRelPo -> retRelPo));
+
+        //遍历map
+        Iterator iterator = relMap.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Console.show(JSON.toJSONString(iterator.next()));
+        }
+        for (String demo1 : relMap.keySet()) {
+            Console.show(relMap.get(demo1).getName());
+        }
     }
 
     private static class Demo {
@@ -251,6 +271,10 @@ public class ToolTest {
 
         public String getName() {
             return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
         }
     }
 }
