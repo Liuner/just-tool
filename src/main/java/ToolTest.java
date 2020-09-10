@@ -37,7 +37,9 @@ public class ToolTest {
 
 //        test();
 
-        listToMap();
+//        listToMap();
+
+        listPage();
     }
 
     private static void test() {
@@ -264,6 +266,41 @@ public class ToolTest {
         for (String demo1 : relMap.keySet()) {
             Console.show(relMap.get(demo1).getName());
         }
+    }
+
+    private static void listPage() {
+        int pageNo = 2;
+        int pageSize = 1;
+
+        List<Demo> demos = new ArrayList<>();
+        Demo demo1 = new Demo();
+        demo1.setName("demo1");
+        demos.add(demo1);
+
+        Demo demo2 = new Demo();
+        demo2.setName("demo2");
+        demos.add(demo2);
+
+        List<Demo> retList = new ArrayList<>();
+
+        //获取指针 (如果第一页，就从0开始，如果是其他页码，就用 当前码*页面大小)
+        int index = ( pageNo > 1 ? (pageNo - 1) * pageSize : 0);
+
+        for (int i = 0; i < pageSize && i < demos.size() - index; i++) {
+            Demo dataBo = demos.get(index + i);
+            retList.add(dataBo);
+        }
+
+        int total = demos.size() % pageSize == 0 ? demos.size()/pageSize : demos.size()/pageSize +1;
+        int recodeTotal = demos.size();
+
+        Console.show("total:" + total);
+        Console.show("recodeTotal:" + recodeTotal);
+        Console.show("pageNo:" + pageNo);
+        Console.show("pageSize:" + pageSize);
+        Console.show("retList:" + JSON.toJSONString(retList));
+
+
     }
 
     private static class Demo {
