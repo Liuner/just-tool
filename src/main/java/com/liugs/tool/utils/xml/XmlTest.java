@@ -1,5 +1,8 @@
 package com.liugs.tool.utils.xml;
 
+import com.alibaba.fastjson.JSON;
+import com.liugs.tool.constants.Console;
+
 import java.util.Arrays;
 
 /**
@@ -23,5 +26,22 @@ public class XmlTest {
         bodyBo.setCargo(Arrays.asList(cargo));
         String xml = XmlUtils.objToXml(testBo);
 
+
+        String xmlStr = "<xmbTestBo>\n" +
+                "    <body orderid=\"3232323\">\n" +
+                "        <cargo>computer, mouse</cargo>\n" +
+                "        <mailNo>423423423423</mailNo>\n" +
+                "        <company>yellow</company>\n" +
+                "    </body>\n" +
+                "    <head>head</head>\n" +
+                "    <lang>land</lang>\n" +
+                "</xmbTestBo>";
+
+        XmbTestBo newB = new XmbTestBo();
+        XmbTestBodyBo xmbTestBodyBo = new XmbTestBodyBo();
+        newB.setBody(xmbTestBodyBo);
+
+        XmbTestBo bn = (XmbTestBo) XmlUtils.xmlToObj(xmlStr, XmbTestBo.class);
+        Console.show(JSON.toJSONString(bn));
     }
 }

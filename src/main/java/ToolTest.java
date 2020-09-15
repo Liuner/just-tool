@@ -3,12 +3,14 @@ import com.alibaba.fastjson.JSONObject;
 import com.liugs.tool.constants.Console;
 import com.liugs.tool.constants.ToolConstants;
 import com.liugs.tool.constants.ToolException;
-import com.liugs.tool.constants.ToolPropertiesKey;
 import com.liugs.tool.utils.encode.EncodeExecuter;
 import com.liugs.tool.utils.encode.RsaEncodeTool;
 import org.joda.time.DateTime;
 
+import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -35,12 +37,15 @@ public class ToolTest {
 
 //        sort();
 
-//        test();
+        test();
 
 //        listToMap();
 
-        listPage();
+//        listPage();
+
     }
+
+
 
     private static void test() {
         /*String url = "http://172.16.100.36:18000/upload/cms/column/10001_banner/index.html";
@@ -50,8 +55,34 @@ public class ToolTest {
 
         JSONArray rows = (JSONArray) jsonObject.get("rows");
         System.out.println(rows);*/
-        Set<String> keySet = ToolPropertiesKey.getKeySet();
-        System.out.println(JSON.toJSONString(keySet));
+
+//        Set<String> keySet = ToolPropertiesKey.getKeySet();
+//        System.out.println(JSON.toJSONString(keySet));
+
+        String testStr = "key-value&name-liugs&age-24&";
+        String enCodeStr = null;
+        try {
+            enCodeStr = URLEncoder.encode(testStr, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        String deCodeStr = null;
+        try {
+            deCodeStr = URLDecoder.decode(enCodeStr, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        String[] strs = deCodeStr.split("&");
+        Map<String, String> map = new HashMap<>(16);
+        for (String s : strs) {
+            String[] str = s.split("-");
+            map.put(str[0], str[1]);
+        }
+
+        Console.show(JSON.toJSONString(map));
+
+
 
     }
 
