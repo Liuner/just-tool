@@ -6,11 +6,9 @@ import com.liugs.tool.constants.ToolException;
 import com.liugs.tool.utils.encode.EncodeExecuter;
 import com.liugs.tool.utils.encode.RsaEncodeTool;
 import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
 
-import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -59,7 +57,7 @@ public class ToolTest {
 //        Set<String> keySet = ToolPropertiesKey.getKeySet();
 //        System.out.println(JSON.toJSONString(keySet));
 
-        String testStr = "key-value&name-liugs&age-24&";
+        /*String testStr = "key-value&name-liugs&age-24&";
         String enCodeStr = null;
         try {
             enCodeStr = URLEncoder.encode(testStr, "UTF-8");
@@ -80,8 +78,12 @@ public class ToolTest {
             map.put(str[0], str[1]);
         }
 
-        Console.show(JSON.toJSONString(map));
+        Console.show(JSON.toJSONString(map));*/
 
+        String dateStr = "2020-09-15 16:17:22";
+        DateTime tradeTime = DateTime.parse(dateStr, DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss"));
+        Console.show(tradeTime.toString("yyyyHHdd"));
+        Console.show(tradeTime.toString("HHmmss"));
 
 
     }

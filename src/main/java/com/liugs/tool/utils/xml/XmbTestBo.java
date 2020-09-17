@@ -10,7 +10,7 @@ import java.io.Serializable;
  * @Author liugs
  * @Date 2020/7/10 16:20:13
  */
-@XmlRootElement
+@XmlRootElement(name = "XmbTestBo")
 public class XmbTestBo implements Serializable {
 
     private static final long serialVersionUID = 5282850015542928318L;

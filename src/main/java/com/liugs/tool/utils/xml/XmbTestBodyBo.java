@@ -40,6 +40,7 @@ public class XmbTestBodyBo implements Serializable {
     public void setMailNo(String mailNo) {
         this.mailNo = mailNo;
     }
+
     @XmlElement(name = "company")
     public String getjCompany() {
         return jCompany;

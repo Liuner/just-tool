@@ -27,15 +27,15 @@ public class XmlTest {
         String xml = XmlUtils.objToXml(testBo);
 
 
-        String xmlStr = "<xmbTestBo>\n" +
-                "    <body orderid=\"3232323\">\n" +
+        String xmlStr = "<XmbTestBo>\n" +
+                "    <Body orderid=\"3232323\">\n" +
                 "        <cargo>computer, mouse</cargo>\n" +
                 "        <mailNo>423423423423</mailNo>\n" +
-                "        <company>yellow</company>\n" +
-                "    </body>\n" +
-                "    <head>head</head>\n" +
-                "    <lang>land</lang>\n" +
-                "</xmbTestBo>";
+                "        <company>汉字</company>\n" +
+                "    </Body>\n" +
+                "    <Head>head</Head>\n" +
+                "    <Lang>land</Lang>\n" +
+                "</XmbTestBo>";
 
         XmbTestBo newB = new XmbTestBo();
         XmbTestBodyBo xmbTestBodyBo = new XmbTestBodyBo();
