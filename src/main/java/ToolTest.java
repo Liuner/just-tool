@@ -6,7 +6,6 @@ import com.liugs.tool.constants.ToolException;
 import com.liugs.tool.utils.encode.EncodeExecuter;
 import com.liugs.tool.utils.encode.RsaEncodeTool;
 import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormat;
 
 import java.math.BigDecimal;
 import java.util.*;
@@ -80,11 +79,37 @@ public class ToolTest {
 
         Console.show(JSON.toJSONString(map));*/
 
-        String dateStr = "2020-09-15 16:17:22";
-        DateTime tradeTime = DateTime.parse(dateStr, DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss"));
-        Console.show(tradeTime.toString("yyyyHHdd"));
-        Console.show(tradeTime.toString("HHmmss"));
+//        String dateStr = "2020-09-15 16:17:22";
+//        DateTime tradeTime = DateTime.parse(dateStr, DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss"));
+//        Console.show(tradeTime.toString("yyyyHHdd"));
+//        Console.show(tradeTime.toString("HHmmss"));
+        Map<String, String> valueMap = new HashMap<>(16);
+        valueMap.put("Version", "20150922");
+        valueMap.put("MerId", "000092009169004");
+        valueMap.put("MerOrderNo", "dfsrwr23423423");
+        valueMap.put("TranDate", "20200919");
+        valueMap.put("TranTime", "175823");
+        valueMap.put("OrderAmt", "1");
+        valueMap.put("BusiType", "0001");
+        valueMap.put("MerBgUrl", "www.baidu.com");
+        valueMap.put("Signature", "sdfsdfsdfsdf");
 
+        String formHead = "<form name=\"message_form\" method=\"post\" action=\"URL\">";
+        String inputItem = "<input type=\"hidden\" name=\"CODE\" value=\"VALUE\">";
+        String submit = "<input type=\"submit\" value=\"立即支付\" style=\"display:none\" >";
+        String script = "<script>document.forms[0].submit();</script>";
+
+        StringBuilder htmlBuilder =new StringBuilder();
+        htmlBuilder.append(formHead.replace("URL", ""));
+        for (String key : valueMap.keySet()) {
+            String input = inputItem.replace("CODE", key).replace("VALUE", valueMap.get(key));
+            htmlBuilder.append(input);
+        }
+        htmlBuilder.append(submit);
+        htmlBuilder.append("</form>");
+        htmlBuilder.append(script);
+
+        System.out.println(htmlBuilder);
 
     }
 
