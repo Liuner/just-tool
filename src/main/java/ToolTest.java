@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 public class ToolTest {
 
     public static void main(String[] args) {
-        /*try {
+/*        try {
             enCode();
         } catch (Exception e) {
             e.printStackTrace();
@@ -83,7 +83,8 @@ public class ToolTest {
 //        DateTime tradeTime = DateTime.parse(dateStr, DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss"));
 //        Console.show(tradeTime.toString("yyyyHHdd"));
 //        Console.show(tradeTime.toString("HHmmss"));
-        Map<String, String> valueMap = new HashMap<>(16);
+
+        /*Map<String, String> valueMap = new HashMap<>(16);
         valueMap.put("Version", "20150922");
         valueMap.put("MerId", "000092009169004");
         valueMap.put("MerOrderNo", "dfsrwr23423423");
@@ -109,7 +110,15 @@ public class ToolTest {
         htmlBuilder.append("</form>");
         htmlBuilder.append(script);
 
-        System.out.println(htmlBuilder);
+        System.out.println(htmlBuilder);*/
+
+        Console.show("时间戳：" + DateTime.now().getMillis());
+
+        Date date = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        long timestamp = cal.getTimeInMillis();
+        Console.show("时间戳：" + timestamp);
 
     }
 
