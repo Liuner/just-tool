@@ -112,14 +112,94 @@ public class ToolTest {
 
         System.out.println(htmlBuilder);*/
 
-        Console.show("时间戳：" + DateTime.now().getMillis());
+        /*Console.show("时间戳：" + DateTime.now().getMillis());
 
         Date date = new Date();
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         long timestamp = cal.getTimeInMillis();
-        Console.show("时间戳：" + timestamp);
+        Console.show("时间戳：" + timestamp);*/
 
+//        String resultStr = HttpUtil.get("https://www.cnncmall.com/upload/cms/column/12323_banner/index.html");
+        /*JSONObject columnJson = new JSONObject();
+        columnJson.put("ceshi", "fdsfas");
+//        String result = HttpUtil.post("http://192.168.3.53:9000/ms-mcms/cms/service/addColumnService.do", columnJson.toJSONString());
+        String result = null;
+        JSONObject resultJson = JSON.parseObject(result);
+        Console.show(resultJson.toString());*/
+
+        String str = "{\n" +
+                "    \"goodsSubId\": \"323\",\n" +
+                "    \"goodsName\": \"商品名称\",\n" +
+                "    \"payeeCompanyName\": \"发射点发\",\n" +
+                "    \"goodsNumber\": \"234234\",\n" +
+                "    \"goodsUnit\": \"地方撒地方\",\n" +
+                "    \"goodsAmt\": \"sdfasdf\"\n" +
+                "}";
+        GoodInfo goodInfo = JSONObject.parseObject(str, GoodInfo.class);
+        Console.show(JSON.toJSONString(goodInfo));
+    }
+    public static class GoodInfo {
+        /**商品信息子序号*/
+        private String goodsSubId;
+        /** 商品名称 */
+        private String goodsName;
+        /** 收款人户名 */
+        private String payeeCompanyName;
+        /** 商品数量 */
+        private String goodsNumber;
+        /** 商品单位 */
+        private String goodsUnit;
+        /** 商品金额（单位：分） */
+        private String goodsAmt;
+
+        public String getGoodsSubId() {
+            return goodsSubId;
+        }
+
+        public void setGoodsSubId(String goodsSubId) {
+            this.goodsSubId = goodsSubId;
+        }
+
+        public String getGoodsName() {
+            return goodsName;
+        }
+
+        public void setGoodsName(String goodsName) {
+            this.goodsName = goodsName;
+        }
+
+        public String getPayeeCompanyName() {
+            return payeeCompanyName;
+        }
+
+        public void setPayeeCompanyName(String payeeCompanyName) {
+            this.payeeCompanyName = payeeCompanyName;
+        }
+
+        public String getGoodsNumber() {
+            return goodsNumber;
+        }
+
+        public void setGoodsNumber(String goodsNumber) {
+            this.goodsNumber = goodsNumber;
+        }
+
+        public String getGoodsUnit() {
+            return goodsUnit;
+        }
+
+        public void setGoodsUnit(String goodsUnit) {
+            this.goodsUnit = goodsUnit;
+        }
+
+        public String getGoodsAmt() {
+            return goodsAmt;
+        }
+
+        public void setGoodsAmt(String goodsAmt) {
+            this.goodsAmt = goodsAmt;
+        }
     }
 
     /**
