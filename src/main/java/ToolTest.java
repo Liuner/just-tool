@@ -128,7 +128,7 @@ public class ToolTest {
         JSONObject resultJson = JSON.parseObject(result);
         Console.show(resultJson.toString());*/
 
-        String str = "{\n" +
+        /*String str = "{\n" +
                 "    \"goodsSubId\": \"323\",\n" +
                 "    \"goodsName\": \"商品名称\",\n" +
                 "    \"payeeCompanyName\": \"发射点发\",\n" +
@@ -137,7 +137,10 @@ public class ToolTest {
                 "    \"goodsAmt\": \"sdfasdf\"\n" +
                 "}";
         GoodInfo goodInfo = JSONObject.parseObject(str, GoodInfo.class);
-        Console.show(JSON.toJSONString(goodInfo));
+        Console.show(JSON.toJSONString(goodInfo));*/
+
+        String str = "0123456789qwertyuio";
+        Console.show(str.substring(str.length() - 10));
     }
     public static class GoodInfo {
         /**商品信息子序号*/
