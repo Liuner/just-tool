@@ -139,8 +139,19 @@ public class ToolTest {
         GoodInfo goodInfo = JSONObject.parseObject(str, GoodInfo.class);
         Console.show(JSON.toJSONString(goodInfo));*/
 
-        String str = "0123456789qwertyuio";
-        Console.show(str.substring(str.length() - 10));
+        /*String str = "http://liugs.utools.club/pay-dev/pay/rest/receiveIcbcNotify";
+        Console.show(str.substring(str.indexOf("/pay/")));
+        String SLASH = "/";
+        Matcher slashMatcher = Pattern.compile(SLASH).matcher(str);
+        int index = 0;
+        while(slashMatcher.find()) {
+            index++;
+            if(index == 3){
+                break;
+            }
+        }
+        Console.show(slashMatcher.start());
+        Console.show(str.substring(slashMatcher.start()));*/
     }
     public static class GoodInfo {
         /**商品信息子序号*/
