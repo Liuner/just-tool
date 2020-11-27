@@ -326,6 +326,8 @@ public class ToolTest {
         jsonObject.put("sex", "man");
         String resourceStr = jsonObject.toJSONString();
 
+//        String QQStr = "1138208740";
+
         console("==================公钥加密，私钥解密==================");
         //公钥加密串
         String encodeStr = EncodeExecuter.publicEncode(publicKey, resourceStr, signKey);
