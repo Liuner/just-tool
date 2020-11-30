@@ -1,6 +1,8 @@
 package com.liugs.tool.utils.multithread.demo;
 
 import cn.hutool.core.thread.ThreadFactoryBuilder;
+import cn.hutool.core.thread.ThreadUtil;
+import com.liugs.tool.constants.Console;
 
 import java.io.*;
 import java.util.concurrent.*;
@@ -45,10 +47,16 @@ public class FIileFactory {
         FileConsume fileConsume = new FileConsume(linkedTransferQueue);
         FileConsume fileConsume2 = new FileConsume(linkedTransferQueue);
 
-        pool.submit(fileReader);
+        /*pool.submit(fileReader);
         pool.submit(fileConsume);
         pool.submit(fileConsume2);
 
-        pool.shutdown();
+        pool.shutdown();*/
+
+        ThreadUtil.execAsync(fileReader);
+        ThreadUtil.execAsync(fileConsume);
+        ThreadUtil.execAsync(fileConsume2);
+
+        Console.show("over");
     }
 }
