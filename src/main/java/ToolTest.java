@@ -20,11 +20,11 @@ import java.util.stream.Collectors;
 public class ToolTest {
 
     public static void main(String[] args) {
-/*        try {
+        try {
             enCode();
         } catch (Exception e) {
             e.printStackTrace();
-        }*/
+        }
 
         /*dealNum();*/
 
@@ -34,7 +34,7 @@ public class ToolTest {
 
 //        sort();
 
-        test();
+//        test();
 
 //        listToMap();
 
@@ -153,6 +153,7 @@ public class ToolTest {
         Console.show(slashMatcher.start());
         Console.show(str.substring(slashMatcher.start()));*/
     }
+
     public static class GoodInfo {
         /**商品信息子序号*/
         private String goodsSubId;

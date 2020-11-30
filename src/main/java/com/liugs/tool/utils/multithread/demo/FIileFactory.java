@@ -25,7 +25,6 @@ public class FIileFactory {
                 threadFactory,
                 new ThreadPoolExecutor.AbortPolicy());
 
-
         BufferedReader reader = null;
         try {
             File file = new File("E:\\Liunuer\\Documents\\code\\just-tool\\src\\main\\java\\com\\liugs\\tool\\utils\\multithread\\demo\\ReadTest.txt");
