@@ -10,14 +10,12 @@ import java.util.concurrent.*;
  * @Description 异步通知
  * @Author liugs
  * @Date 2020/11/30 11:45:35
- * @Copyright 2020 www.tydic.com Inc. All rights reserved.
- * 注意 本内容仅限于北京天源迪科信息技术有限公司内部传阅，禁止外泄以及用于其他商业目的
  */
 public class AsyncUtils {
 
     private static ExecutorService executor;
 
-    private static final String THREAD_NAME = "PAY-ASYNC-";
+    private static final String THREAD_NAME = "PAY-ASYNC";
     private static final int POOL_CORE_SIZE = 20;
     private static final int POOL_MAX_SIZE = 40;
 
@@ -64,6 +62,13 @@ public class AsyncUtils {
         }
     }
 
+    /**
+     * 描述 执行
+     * @param runnable
+     * @return void
+     * @author liugs
+     * @date 2020/12/1 9:49:53
+     */
     public static void execAsync(Runnable runnable) {
         executor.execute(runnable);
     }
