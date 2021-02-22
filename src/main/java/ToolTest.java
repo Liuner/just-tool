@@ -20,11 +20,11 @@ import java.util.stream.Collectors;
 public class ToolTest {
 
     public static void main(String[] args) {
-        try {
+      /*  try {
             enCode();
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
 
         /*dealNum();*/
 
@@ -34,12 +34,11 @@ public class ToolTest {
 
 //        sort();
 
-//        test();
+        test();
 
 //        listToMap();
 
 //        listPage();
-
     }
 
 
@@ -152,6 +151,20 @@ public class ToolTest {
         }
         Console.show(slashMatcher.start());
         Console.show(str.substring(slashMatcher.start()));*/
+
+        /*JSONObject json = new JSONObject();
+        json.put("billDate", "20201224163121");
+        Map<String, String> paramMap = new HashMap<>(16);
+        paramMap.put("MerId", "23423423");
+        json.put("paraMap", paramMap);
+        Console.show(JSON.toJSONString(json));*/
+        TestParam("1234324", "42342342", "42342342");
+
+
+    }
+
+    public static void TestParam(Object...arg) {
+
     }
 
     public static class GoodInfo {
@@ -478,4 +491,5 @@ public class ToolTest {
             this.name = name;
         }
     }
+
 }

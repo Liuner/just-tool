@@ -16,8 +16,8 @@ public class AsyncUtils {
     private static ExecutorService executor;
 
     private static final String THREAD_NAME = "PAY-ASYNC";
-    private static final int POOL_CORE_SIZE = 20;
-    private static final int POOL_MAX_SIZE = 40;
+    private static final int POOL_CORE_SIZE = Runtime.getRuntime().availableProcessors() * 2;
+    private static final int POOL_MAX_SIZE = 64;
 
     static {
         init();
