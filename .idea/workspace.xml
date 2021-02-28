@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6958bff2-a330-45a1-831a-d4aaca34a517" name="Default Changelist" comment="" />
+    <list default="true" id="6958bff2-a330-45a1-831a-d4aaca34a517" name="Default Changelist" comment="项目调整">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tool-api/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/tool-api/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tool-api/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/tool-api/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tool-api/target/tool-api-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tool-api/target/tool-api-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tool-base/target/tool-base-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tool-base/target/tool-base-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tool-center/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/tool-center/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tool-center/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/tool-center/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tool-center/target/tool-center-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tool-center/target/tool-center-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tool-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/tool-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tool-service/target/tool-service.jar" beforeDir="false" afterPath="$PROJECT_DIR$/tool-service/target/tool-service.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tool-service/target/tool-service.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/tool-service/target/tool-service.jar.original" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,17 +34,21 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="alwaysUpdateSnapshots" value="true" />
-        <option name="mavenHome" value="$PROJECT_DIR$/../../../all_Codes/maven/apache-maven-3.6.3" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../../../all_Codes/maven/apache-maven-3.6.3" />
         <option name="threads" value="10" />
         <option name="userSettingsFile" value="E:\all_Codes\maven_setting_files\settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
   <component name="ProjectId" id="1p3fWiEScZ1BKG7MCEMysdagrpj" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -45,7 +62,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tool-base/src/main/java/com/liugs/tool" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -53,15 +70,16 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Liunuer\Documents\code\just-tool\tool-base\src\main\java\com\liugs\tool" />
+      <recent name="E:\Liunuer\Documents\code\just-tool" />
       <recent name="E:\Liunuer\Desktop\just-tool\tool-service\src\main\resources" />
       <recent name="E:\Liunuer\Desktop\just-tool\tool-service\src\main\java" />
       <recent name="E:\Liunuer\Desktop\just-tool\tool-center\src\main\java" />
-      <recent name="E:\Liunuer\Desktop\just-tool\tool-base\src\main\java" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.liugs.tool.base" />
@@ -104,11 +122,36 @@
       <workItem from="1614416735022" duration="3119000" />
       <workItem from="1614419889291" duration="2395000" />
       <workItem from="1614422329025" duration="70000" />
-      <workItem from="1614482828752" duration="625000" />
+      <workItem from="1614482828752" duration="870000" />
+      <workItem from="1614483722940" duration="53000" />
+      <workItem from="1614508078679" duration="1620000" />
     </task>
+    <task id="LOCAL-00001" summary="项目调整">
+      <created>1614483556674</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1614483556674</updated>
+    </task>
+    <task id="LOCAL-00002" summary="项目调整">
+      <created>1614483623092</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1614483623092</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="项目调整" />
+    <option name="LAST_COMMIT_MESSAGE" value="项目调整" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
