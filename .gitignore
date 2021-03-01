@@ -33,3 +33,4 @@ hsf.lock
 *.log
 
 /.gradle/
+/.idea/
