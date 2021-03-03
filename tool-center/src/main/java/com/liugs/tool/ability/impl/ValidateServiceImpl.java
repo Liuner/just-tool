@@ -2,10 +2,10 @@ package com.liugs.tool.ability.impl;
 
 import com.liugs.tool.ability.ValidateService;
 import com.liugs.tool.ability.bo.ValidateServiceReqBo;
-import com.liugs.tool.ability.bo.ValidateServiceRspBaseBo;
-import com.liugs.tool.constants.RespConstants;
+import com.liugs.tool.ability.bo.ValidateServiceRspBo;
 import com.liugs.tool.dao.TestMapper;
 import com.liugs.tool.dao.po.TestPo;
+import com.liugs.tool.util.ToolRspUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,11 +25,9 @@ public class ValidateServiceImpl implements ValidateService {
     private TestMapper testMapper;
 
     @Override
-    public ValidateServiceRspBaseBo validate(ValidateServiceReqBo reqBo) {
+    public ValidateServiceRspBo validate(ValidateServiceReqBo reqBo) {
         log.debug("验证服务开始，入参：{}", reqBo);
-        ValidateServiceRspBaseBo retBo = new ValidateServiceRspBaseBo();
-        retBo.setRespCode(RespConstants.RESP_CODE_SUCCESS);
-        retBo.setRespDesc(RespConstants.RESP_CODE_SUCCESS);
+        ValidateServiceRspBo retBo = ToolRspUtil.getSuccessRspBo(ValidateServiceRspBo.class);
 
         TestPo po = testMapper.selectByName(reqBo.getName());
         if (null == po) {

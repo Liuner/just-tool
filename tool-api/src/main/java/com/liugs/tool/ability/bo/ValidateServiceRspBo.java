@@ -10,7 +10,7 @@ import lombok.Data;
  * @Date 2021/3/3 14:38:59
  */
 @Data
-public class ValidateServiceRspBaseBo extends ToolRspBaseBo {
+public class ValidateServiceRspBo extends ToolRspBaseBo {
 
     private static final long serialVersionUID = 776534394037976463L;
 

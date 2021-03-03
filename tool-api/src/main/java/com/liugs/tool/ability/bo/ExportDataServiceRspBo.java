@@ -8,7 +8,7 @@ import com.liugs.tool.constants.ToolRspBaseBo;
  * @Author liugs
  * @Date 2021/2/27 18:06:27
  */
-public class ExportDataServiceRspBaseBo extends ToolRspBaseBo {
+public class ExportDataServiceRspBo extends ToolRspBaseBo {
 
     private static final long serialVersionUID = -4393295028241908092L;
 

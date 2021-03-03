@@ -2,7 +2,7 @@ package com.liugs.tool.ability.impl;
 
 import com.liugs.tool.ability.ExportDataService;
 import com.liugs.tool.ability.bo.ExportDataServiceReqBo;
-import com.liugs.tool.ability.bo.ExportDataServiceRspBaseBo;
+import com.liugs.tool.ability.bo.ExportDataServiceRspBo;
 import com.liugs.tool.config.AsyncExport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,8 +26,8 @@ public class ExportDataServiceImpl implements ExportDataService {
     private AsyncExport asyncExport;
 
     @Override
-    public ExportDataServiceRspBaseBo exportData(ExportDataServiceReqBo reqBo) {
-        ExportDataServiceRspBaseBo retBo = new ExportDataServiceRspBaseBo();
+    public ExportDataServiceRspBo exportData(ExportDataServiceReqBo reqBo) {
+        ExportDataServiceRspBo retBo = new ExportDataServiceRspBo();
         asyncExport.asyncExport(reqBo);
 
         retBo.setRespDesc("SUCCESS");
