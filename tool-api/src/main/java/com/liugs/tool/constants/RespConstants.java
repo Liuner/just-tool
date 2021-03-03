@@ -9,7 +9,13 @@ package com.liugs.tool.constants;
 public class RespConstants {
 
     /**成功编码*/
-    public static String SUCCESS_CODE = "0000";
+    public static final String RESP_CODE_SUCCESS = "0000";
     /**成功描述*/
-    public static String SUCCESS_DESC = "SUCCESS";
+    public static final String RESP_DESC_SUCCESS = "SUCCESS";
+
+    /**失败编码*/
+    public static final String RESP_CODE_FAILED = "8888";
+
+    /**失败描述*/
+    public static final String RESP_DESC_FAILED = "FAILED";
 }

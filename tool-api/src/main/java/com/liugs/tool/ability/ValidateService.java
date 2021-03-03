@@ -1,7 +1,7 @@
 package com.liugs.tool.ability;
 
 import com.liugs.tool.ability.bo.ValidateServiceReqBo;
-import com.liugs.tool.ability.bo.ValidateServiceRspBo;
+import com.liugs.tool.ability.bo.ValidateServiceRspBaseBo;
 
 /**
  * @ClassName ValidateService
@@ -18,5 +18,5 @@ public interface ValidateService {
      * @author liugs
      * @date 2021/3/3 14:40:13
      */
-    ValidateServiceRspBo validate(ValidateServiceReqBo reqBo);
+    ValidateServiceRspBaseBo validate(ValidateServiceReqBo reqBo);
 }

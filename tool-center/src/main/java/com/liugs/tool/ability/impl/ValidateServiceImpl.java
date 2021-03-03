@@ -2,7 +2,7 @@ package com.liugs.tool.ability.impl;
 
 import com.liugs.tool.ability.ValidateService;
 import com.liugs.tool.ability.bo.ValidateServiceReqBo;
-import com.liugs.tool.ability.bo.ValidateServiceRspBo;
+import com.liugs.tool.ability.bo.ValidateServiceRspBaseBo;
 import com.liugs.tool.constants.RespConstants;
 import com.liugs.tool.dao.TestMapper;
 import com.liugs.tool.dao.po.TestPo;
@@ -25,14 +25,14 @@ public class ValidateServiceImpl implements ValidateService {
     private TestMapper testMapper;
 
     @Override
-    public ValidateServiceRspBo validate(ValidateServiceReqBo reqBo) {
+    public ValidateServiceRspBaseBo validate(ValidateServiceReqBo reqBo) {
         log.debug("验证服务开始，入参：{}", reqBo);
-        ValidateServiceRspBo retBo = new ValidateServiceRspBo();
+        ValidateServiceRspBaseBo retBo = new ValidateServiceRspBaseBo();
 
         TestPo po = testMapper.selectByName(reqBo.getName());
         BeanUtils.copyProperties(po, retBo);
-        retBo.setRespCode(RespConstants.SUCCESS_CODE);
-        retBo.setRespDesc(RespConstants.SUCCESS_DESC);
+        retBo.setRespCode(RespConstants.RESP_CODE_SUCCESS);
+        retBo.setRespDesc(RespConstants.RESP_CODE_SUCCESS);
         log.debug("查询完成，出参：{}", retBo);
         return retBo;
     }

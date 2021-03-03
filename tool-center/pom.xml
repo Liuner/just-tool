@@ -51,6 +51,12 @@
             <artifactId>hutool-all</artifactId>
             <version>${hutool.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.edas</groupId>
+            <artifactId>edas-sdk</artifactId>
+            <version>${edas.version}</version>
+        </dependency>
     </dependencies>
 
 </project>

@@ -8,7 +8,7 @@ import java.io.Serializable;
  * @Author liugs
  * @Date 2021/2/28 11:30:22
  */
-public class ToolBaseRspBo implements Serializable {
+public class ToolRspBaseBo implements Serializable {
 
    private static final long serialVersionUID = -9041664367104421437L;
 

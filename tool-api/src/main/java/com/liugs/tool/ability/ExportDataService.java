@@ -1,7 +1,7 @@
 package com.liugs.tool.ability;
 
 import com.liugs.tool.ability.bo.ExportDataServiceReqBo;
-import com.liugs.tool.ability.bo.ExportDataServiceRspBo;
+import com.liugs.tool.ability.bo.ExportDataServiceRspBaseBo;
 
 /**
  * @ClassName ExportDataService
@@ -18,5 +18,5 @@ public interface ExportDataService {
      * @author liugs
      * @date 2021/2/27 18:07:56
      */
-    ExportDataServiceRspBo exportData(ExportDataServiceReqBo reqBo);
+    ExportDataServiceRspBaseBo exportData(ExportDataServiceReqBo reqBo);
 }

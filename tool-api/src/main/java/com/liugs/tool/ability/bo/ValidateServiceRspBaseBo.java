@@ -1,6 +1,6 @@
 package com.liugs.tool.ability.bo;
 
-import com.liugs.tool.constants.ToolBaseRspBo;
+import com.liugs.tool.constants.ToolRspBaseBo;
 import lombok.Data;
 
 /**
@@ -10,7 +10,7 @@ import lombok.Data;
  * @Date 2021/3/3 14:38:59
  */
 @Data
-public class ValidateServiceRspBo extends ToolBaseRspBo {
+public class ValidateServiceRspBaseBo extends ToolRspBaseBo {
 
     private static final long serialVersionUID = 776534394037976463L;
 

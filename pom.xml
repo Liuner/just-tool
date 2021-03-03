@@ -51,6 +51,8 @@
 
         <!--lombok-->
         <lombok.version>1.18.8</lombok.version>
+        <!--edas-->
+        <edas.version>1.8.1</edas.version>
 
         <okhttp.version>3.9.0</okhttp.version>
         <hutool.version>5.3.8</hutool.version>
@@ -152,6 +154,12 @@
                 <groupId>com.squareup.okhttp3</groupId>
                 <artifactId>okhttp</artifactId>
                 <version>${okhttp.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.edas</groupId>
+                <artifactId>edas-sdk</artifactId>
+                <version>${edas.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
