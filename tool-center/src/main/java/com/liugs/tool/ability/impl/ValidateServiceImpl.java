@@ -28,11 +28,15 @@ public class ValidateServiceImpl implements ValidateService {
     public ValidateServiceRspBaseBo validate(ValidateServiceReqBo reqBo) {
         log.debug("验证服务开始，入参：{}", reqBo);
         ValidateServiceRspBaseBo retBo = new ValidateServiceRspBaseBo();
-
-        TestPo po = testMapper.selectByName(reqBo.getName());
-        BeanUtils.copyProperties(po, retBo);
         retBo.setRespCode(RespConstants.RESP_CODE_SUCCESS);
         retBo.setRespDesc(RespConstants.RESP_CODE_SUCCESS);
+
+        TestPo po = testMapper.selectByName(reqBo.getName());
+        if (null == po) {
+            log.debug("未查询到匹配的记录");
+            retBo.setRespDesc("未查询到匹配的记录");
+        }
+        BeanUtils.copyProperties(po, retBo);
         log.debug("查询完成，出参：{}", retBo);
         return retBo;
     }
