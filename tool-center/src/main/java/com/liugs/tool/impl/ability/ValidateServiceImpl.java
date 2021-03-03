@@ -3,7 +3,7 @@ package com.liugs.tool.impl.ability;
 import com.liugs.tool.ability.ValidateService;
 import com.liugs.tool.ability.bo.ValidateServiceReqBo;
 import com.liugs.tool.ability.bo.ValidateServiceRspBo;
-import com.liugs.tool.base.constants.ToolRespConstants;
+import com.liugs.tool.base.constants.RespConstants;
 import com.liugs.tool.dao.TestMapper;
 import com.liugs.tool.dao.po.TestPo;
 import lombok.extern.slf4j.Slf4j;
@@ -31,8 +31,8 @@ public class ValidateServiceImpl implements ValidateService {
 
         TestPo po = testMapper.selectByName(reqBo.getName());
         BeanUtils.copyProperties(po, retBo);
-        retBo.setRespCode(ToolRespConstants.SUCCESS_CODE);
-        retBo.setRespDesc(ToolRespConstants.SUCCESS_DESC);
+        retBo.setRespCode(RespConstants.SUCCESS_CODE);
+        retBo.setRespDesc(RespConstants.SUCCESS_DESC);
         log.debug("查询完成，出参：{}", retBo);
         return retBo;
     }

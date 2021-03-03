@@ -6,7 +6,7 @@ package com.liugs.tool.base.constants;
  * @Author liugs
  * @Date 2021/3/3 15:28:59
  */
-public class ToolRespConstants {
+public class RespConstants {
 
     /**成功编码*/
     public static String SUCCESS_CODE = "0000";
