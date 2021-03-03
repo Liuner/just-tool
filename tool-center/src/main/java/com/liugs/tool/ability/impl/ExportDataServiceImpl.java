@@ -1,4 +1,4 @@
-package com.liugs.tool.impl.ability;
+package com.liugs.tool.ability.impl;
 
 import com.liugs.tool.ability.ExportDataService;
 import com.liugs.tool.ability.bo.ExportDataServiceReqBo;

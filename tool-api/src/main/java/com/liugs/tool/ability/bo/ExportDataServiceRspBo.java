@@ -1,6 +1,6 @@
 package com.liugs.tool.ability.bo;
 
-import com.liugs.tool.base.ToolBaseRspBo;
+import com.liugs.tool.constants.ToolBaseRspBo;
 
 /**
  * @ClassName ExportDataServiceRspBo
