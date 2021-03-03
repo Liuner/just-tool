@@ -1,4 +1,4 @@
-package com.liugs.tool.base.constants;
+package com.liugs.tool.constants;
 
 /**
  * @ClassName ToolRespConstants

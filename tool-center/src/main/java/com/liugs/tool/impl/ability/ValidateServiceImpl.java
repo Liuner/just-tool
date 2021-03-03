@@ -3,7 +3,7 @@ package com.liugs.tool.impl.ability;
 import com.liugs.tool.ability.ValidateService;
 import com.liugs.tool.ability.bo.ValidateServiceReqBo;
 import com.liugs.tool.ability.bo.ValidateServiceRspBo;
-import com.liugs.tool.base.constants.RespConstants;
+import com.liugs.tool.constants.RespConstants;
 import com.liugs.tool.dao.TestMapper;
 import com.liugs.tool.dao.po.TestPo;
 import lombok.extern.slf4j.Slf4j;

@@ -1,4 +1,4 @@
-package com.liugs.tool.base;
+package com.liugs.tool.constants;
 
 import java.io.Serializable;
 
