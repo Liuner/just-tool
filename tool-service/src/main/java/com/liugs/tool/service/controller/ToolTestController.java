@@ -1,12 +1,11 @@
 package com.liugs.tool.service.controller;
 
 import com.liugs.tool.ability.ExportDataService;
+import com.liugs.tool.ability.ValidateService;
 import com.liugs.tool.ability.bo.ExportDataServiceReqBo;
+import com.liugs.tool.ability.bo.ValidateServiceReqBo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @ClassName ToolTestController
@@ -27,4 +26,12 @@ public class ToolTestController {
         return exportDataService.exportData(reqBo);
     }
 
+    @Autowired
+    private ValidateService validateService;
+
+    @RequestMapping(value = "/validate", method = RequestMethod.POST)
+    @ResponseBody
+    public Object validate(@RequestBody ValidateServiceReqBo reqBo) {
+        return validateService.validate(reqBo);
+    }
 }
