@@ -1,4 +1,4 @@
-package com.liugs.tool;
+package com.liugs.tool.test;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
