@@ -19,8 +19,10 @@ public class ZNotifyCenterTest {
 
     private static void sendEmail() {
         String url = "http://101.200.57.239:8081/notifyApi/sendEmail";
+        url = "http://localhost:8091/notifyApi/sendEmail";
+        //叮当测试
         url = "http://39.98.46.250:9005/notifyApi/sendEmail";
-//        url = "http://localhost:8091/notifyApi/sendEmail";
+        //叮当UAT
         url = "http://47.92.109.10:9005/notifyApi/sendEmail";
 
         JSONObject reqJson = new JSONObject();

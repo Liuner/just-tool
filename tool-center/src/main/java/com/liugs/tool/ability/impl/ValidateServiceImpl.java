@@ -33,6 +33,7 @@ public class ValidateServiceImpl implements ValidateService {
         if (null == po) {
             log.debug("未查询到匹配的记录");
             retBo.setRespDesc("未查询到匹配的记录");
+            return retBo;
         }
         BeanUtils.copyProperties(po, retBo);
         log.debug("查询完成，出参：{}", retBo);
