@@ -53,6 +53,8 @@
         <lombok.version>1.18.8</lombok.version>
         <!--edas-->
         <edas.version>1.8.1</edas.version>
+        <!--oss-->
+        <oss.version>3.10.2</oss.version>
 
         <okhttp.version>3.9.0</okhttp.version>
         <hutool.version>5.3.8</hutool.version>
@@ -151,6 +153,12 @@
             </dependency>
 
             <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+
+            <dependency>
                 <groupId>com.squareup.okhttp3</groupId>
                 <artifactId>okhttp</artifactId>
                 <version>${okhttp.version}</version>
@@ -160,6 +168,12 @@
                 <groupId>com.alibaba.edas</groupId>
                 <artifactId>edas-sdk</artifactId>
                 <version>${edas.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.aliyun.oss</groupId>
+                <artifactId>aliyun-sdk-oss</artifactId>
+                <version>${oss.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
