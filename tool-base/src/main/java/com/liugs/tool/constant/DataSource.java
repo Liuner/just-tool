@@ -26,7 +26,7 @@ public class DataSource {
     }
 
     private static void encryptDbPassword() {
-        password = "Db_PayCenter@";
+        password = "123456";
 
         try {
             String[] keyPair = ConfigTools.genKeyPair(512);

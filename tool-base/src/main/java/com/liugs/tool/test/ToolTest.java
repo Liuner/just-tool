@@ -1,5 +1,6 @@
 package com.liugs.tool.test;
 
+import cn.hutool.core.codec.Base64Encoder;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.liugs.tool.base.Console;
@@ -7,9 +8,13 @@ import com.liugs.tool.constant.ToolConstants;
 import com.liugs.tool.constant.ToolException;
 import com.liugs.tool.encode.EncodeExecuter;
 import com.liugs.tool.encode.RsaEncodeTool;
+import com.tydic.payment.pay.rsa.util.EncodeUtil;
+import com.tydic.payment.pay.sdk.PayCenterSdkException;
 import org.joda.time.DateTime;
 
+import java.io.*;
 import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -41,8 +46,78 @@ public class ToolTest {
 //        listToMap();
 
 //        listPage();
+
+//        delete();
+
+//        testDecode();
     }
 
+    private static void testDecode() {
+        /**--------------------------这段代码是为了得到用来演示的加密报文-------------------*/
+        String privateKey = "MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAIZVkkrlPKLhn5mpLw81avOiDe+HwENMQy0X/gdtdj6pbvBW4RVEXHEBXu5H6r176J6IuF0mQeEUP22bOS9C53j0Ftj06dPMf9Z7lwUGJgGbaaDS+rP4UZgxDdtFk/SMIBgP0tsFhEbPhpWd0TOFIswNt4zTyy7Bqsx1M3mIXt41AgMBAAECgYAl+DHtcXX+I//Ukvl2NwcP7hI6TgiN/RRPvqRSvSHa/FEbJbNhK31lg5mtiC5VeJx7kvFpgtLEJ9D1zhYPwb1jCPYUKRMI0xniQOWTFEUuSyJlvexaYqw1T4hpVuN9RpW7JxItBG6hlzhYU+jEp9zH1QcWq0XBFv2MOv+3h1zRAQJBAPvA6qrcDNugd0uhFz1+1Qo9aJ5Ru4168YBoEd5/jqdji73SLKzTk5nLjeKXKxxyRU0SDAdv/rAY7J7pmZm/xwUCQQCImaID3BwY6bC93alSdikwz48LqzuKT+Et8VeJSUxhhDG0trc13nGRPzXGmWHl4MorL24UxET0PDOiKR0//QFxAkEA8ZPlm58dF4Ob9g7W5kPW2sSip4l2mATpyXYT75Ynpah4Z+ZOyGkese4KcOzuiZV9ur8em+R0WTcRmExBALBuoQJANQZuPdFTltggI5PIBpqXorrvbDgsBKS9ZHgq4r/xRmlqYhwLQn3218sRtOYVeoan89uVf7owih5UbL5I/G3aAQJANBsbYr+ghZMEScxeeaKYjZvWiXBeCJEMfQ7KSuZU5zHiI3VnVfK9HjUcKQFYLFGyDFeRCiIPqtXJlSgvQb4bNQ==";
+        String signkey = "lDZ1V4s20zOjiwpCIuB4qkPEm7gU5csr";
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("realFee", "1.00");
+        jsonObject.put("orderAttrValue2", "");
+        jsonObject.put("orderAttrValue3", "");
+        jsonObject.put("resultCode", "SUCCESS");
+        jsonObject.put("transactionsId", "1500940");
+        jsonObject.put("merchantId", "1000000001");
+        jsonObject.put("resultMsg", "");
+        jsonObject.put("tradeTime", "20181228162210");
+        jsonObject.put("outOrderId", "1545985309289");
+        jsonObject.put("createOperId", "LTHQY211");
+        jsonObject.put("payNotifyTransId", "2018122822001481070598194");
+
+        String data = jsonObject.toJSONString();
+        String content = "";
+        try {
+            content = EncodeUtil.privateEncode(data, privateKey, signkey);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Console.show(content);
+        /**-------------------------------------结束------------------------------------------*/
+
+        //实际使用时，直接传入content和publicKey
+        String publicKey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCGVZJK5Tyi4Z+ZqS8PNWrzog3vh8BDTEMtF/4HbXY+qW7wVuEVRFxxAV7uR+q9e+ieiLhdJkHhFD9tmzkvQud49BbY9OnTzH/We5cFBiYBm2mg0vqz+FGYMQ3bRZP0jCAYD9LbBYRGz4aVndEzhSLMDbeM08suwarMdTN5iF7eNQIDAQAB";
+        //调用解密方法
+        String retStr;
+        try {
+            retStr = EncodeUtil.publicDecode(content, publicKey);
+        } catch (Exception e) {
+            throw new PayCenterSdkException("数据解密异常", e);
+        }
+        System.out.println("使用工具类解密后的数据：" + retStr);
+    }
+
+    private static void delete() {
+        File file = new File("E:\\Liunuer\\Desktop\\斗破苍穹.txt");
+        File newfile = new File("E:\\Liunuer\\Desktop\\斗破苍穹1.txt");
+        try {
+            InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(file), "UTF-8");
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(newfile));
+            BufferedWriter bufferedWriter = new BufferedWriter(outputStreamWriter);
+
+            String str;
+            while ((str = bufferedReader.readLine()) != null) {
+                if ("".equals(str)) {
+                    continue;
+                }
+                bufferedWriter.write(str + System.lineSeparator());
+            }
+            //关闭数据流
+            bufferedReader.close();
+            bufferedWriter.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     private static void test() {
@@ -160,15 +235,13 @@ public class ToolTest {
         paramMap.put("MerId", "23423423");
         json.put("paraMap", paramMap);
         Console.show(JSON.toJSONString(json));*/
-        TestParam("1234324", "42342342", "42342342");
 
-        List<String> list = new ArrayList<>();
-        Map<String, String> paramMap = new HashMap<>(list.size());
-        Console.show(paramMap);
-    }
+        String input = "elastic:1qaz2wsx";
+        String str = Base64Encoder.encode(input.getBytes(StandardCharsets.UTF_8));
+        Console.show(str);
 
-    public static void TestParam(Object...arg) {
-
+        JSONObject object = new JSONObject();
+        object.put("","");
     }
 
     public static class GoodInfo {

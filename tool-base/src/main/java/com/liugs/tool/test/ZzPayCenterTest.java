@@ -29,11 +29,11 @@ public class ZzPayCenterTest {
 
     public static void main(String[] args) {
         /** 1.支付 2.退款 3.查询支付状态 4.查询退款状态 5.对账 6.实付 */
-        DEAL_TYPE = 5;
+        DEAL_TYPE = 1;
 
         PAY_METHOD = "";
         //支付单
-        ORDER_ID ="2021022501";
+        ORDER_ID ="2021032301";
         OUT_ORDER_ID = "LPay" + ORDER_ID;
 
         //退款单
@@ -104,7 +104,7 @@ public class ZzPayCenterTest {
 //        serverUrl = "http://172.16.100.52:10040/pay/rest/payPro/uniOrderEncrypt";
 //        merchantId = "1296659250633871361";
         /**=================================中核（二期）测试===========================================*/
-        serverUrl = "http://172.16.100.62:10040/pay/rest/payPro/uniOrderEncrypt";
+//        serverUrl = "http://172.16.100.62:10040/pay/rest/payPro/uniOrderEncrypt";
 //        merchantId = "1296659250633871361";
         /**===================================中核生产===============================================*/
 //        serverUrl = "https://www.cnncmall.com/pay/rest/payPro/uniOrderEncrypt";
@@ -121,7 +121,7 @@ public class ZzPayCenterTest {
 
         payCenterRequest.setMerchantId(merchantId);
         payCenterRequest.setOutOrderId(orderId);
-        payCenterRequest.setTotalFee("1000");
+        payCenterRequest.setTotalFee("1");
         payCenterRequest.setReqWay("1");
         payCenterRequest.setDetailName("支付中心下单测试");
         payCenterRequest.setPayMethod(payMethod);
@@ -143,7 +143,7 @@ public class ZzPayCenterTest {
         //业务扩展参数
         JSONObject busiReqJson = new JSONObject();
         //指定支付方式
-//        busiReqJson.put("payMethods", "21");
+        busiReqJson.put("payMethods", "21");
         busiReqJson.put("notifyAddress", "http://liugs.test.utools.club/pay/rest/acceptPayCenterCallback");
 //        //中核小程序
 //        busiReqJson.put("appletAppId", "wx7cfecb25a2403d03");
