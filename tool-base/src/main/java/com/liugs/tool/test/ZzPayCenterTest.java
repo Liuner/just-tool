@@ -28,12 +28,12 @@ public class ZzPayCenterTest {
     private static String BILL_URL;
 
     public static void main(String[] args) {
-        /** 1.支付 2.退款 3.查询支付状态 4.查询退款状态 5.对账 6.实付 */
-        DEAL_TYPE = 1;
+        /** 1.支付 2.退款 3.查询支付状态 4.查询退款状态 5.对账 6.实付 7.线下支付回调模拟 */
+        DEAL_TYPE = 3;
 
         PAY_METHOD = "";
         //支付单
-        ORDER_ID ="2021032301";
+        ORDER_ID ="2021032602";
         OUT_ORDER_ID = "LPay" + ORDER_ID;
 
         //退款单
@@ -63,6 +63,8 @@ public class ZzPayCenterTest {
             case 6:
                 realPay(OUT_ORDER_ID, OUT_REAL_PAY_ORDER_ID);
                 break;
+            case 7:
+                dealOfflineNotify();
             default:
                 testDecode();
                 break;
@@ -143,7 +145,7 @@ public class ZzPayCenterTest {
         //业务扩展参数
         JSONObject busiReqJson = new JSONObject();
         //指定支付方式
-        busiReqJson.put("payMethods", "21");
+//        busiReqJson.put("payMethods", "21");
         busiReqJson.put("notifyAddress", "http://liugs.test.utools.club/pay/rest/acceptPayCenterCallback");
 //        //中核小程序
 //        busiReqJson.put("appletAppId", "wx7cfecb25a2403d03");
@@ -335,5 +337,22 @@ public class ZzPayCenterTest {
         System.out.println("使用工具类解密后的数据：" + retStr);
     }
 
+    /**
+     * 描述 模拟线下支付回调
+     * @param
+     * @return void
+     * @author liugs
+     * @date 2021/3/26 10:26:22
+     */
+    private static void dealOfflineNotify() {
+        String url = "http://localhost:8081/pay/rest/dealOfflinePayNotify";
+
+        JSONObject reqData = new JSONObject();
+        reqData.put("payNotifyTransId", "PayDev2345821413376");
+        reqData.put("payOrderId", "PayDev2345821413376");
+        reqData.put("tradeTime", "20200326103050");
+
+        Console.show(HttpUtil.post(url, reqData));
+    }
 }
 
