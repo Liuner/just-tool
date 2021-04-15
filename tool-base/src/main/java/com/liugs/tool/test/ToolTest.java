@@ -1,6 +1,6 @@
 package com.liugs.tool.test;
 
-import cn.hutool.core.codec.Base64Encoder;
+import cn.hutool.core.io.FileUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.liugs.tool.base.Console;
@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
  */
 public class ToolTest {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
       /*  try {
             enCode();
         } catch (Exception e) {
@@ -41,7 +41,7 @@ public class ToolTest {
 
 //        sort();
 
-        test();
+//        test();
 
 //        listToMap();
 
@@ -50,6 +50,40 @@ public class ToolTest {
 //        delete();
 
 //        testDecode();
+
+        testFile();
+    }
+
+    private static void testFile() throws IOException {
+        InputStream in = FileUtil.getInputStream("E:\\Liunuer\\Desktop\\111.txt");
+        FileOutputStream fileOutputStream = new FileOutputStream("E:\\Liunuer\\Desktop\\1112.txt");
+
+        ByteArrayOutputStream outputStream = convertToOut(in);
+        outputStream.write(("nihao" + System.getProperty("line.separator")).getBytes(StandardCharsets.UTF_8));
+
+        fileOutputStream.write(outputStream.toByteArray());
+
+        Console.show(outputStream.toString());
+
+        outputStream.close();
+        fileOutputStream.close();
+        in.close();
+    }
+
+    private static ByteArrayOutputStream convertToOut(InputStream in) throws IOException {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+        byte[] buffer = new byte[1024];
+        for (int readSize; (readSize = in.read(buffer)) != -1; ) {
+            out.write(buffer, 0, readSize);
+            out.flush();
+        }
+
+        return out;
+    }
+
+    private static InputStream convertToIn(ByteArrayOutputStream  out) {
+        return new ByteArrayInputStream(out.toByteArray());
     }
 
     private static void testDecode() {
@@ -236,12 +270,60 @@ public class ToolTest {
         json.put("paraMap", paramMap);
         Console.show(JSON.toJSONString(json));*/
 
-        String input = "elastic:1qaz2wsx";
+        /*String input = "elastic:1qaz2wsx";
         String str = Base64Encoder.encode(input.getBytes(StandardCharsets.UTF_8));
         Console.show(str);
 
         JSONObject object = new JSONObject();
-        object.put("","");
+        object.put("","");*/
+
+
+        List<GoodInfo> goodInfos = new ArrayList<>();
+        GoodInfo goodInfo1 = new GoodInfo();
+        goodInfo1.setGoodsSubId("10001");
+
+        GoodInfo goodInfo2 = new GoodInfo();
+        goodInfo2.setGoodsSubId("10002");
+
+        GoodInfo goodInfo3 = new GoodInfo();
+        goodInfo3.setGoodsSubId("10002");
+
+        GoodInfo goodInfo4 = new GoodInfo();
+        goodInfo4.setGoodsSubId("10001");
+
+        GoodInfo goodInfo5 = new GoodInfo();
+        goodInfo5.setGoodsSubId("10004");
+
+        goodInfos.add(goodInfo1);
+        goodInfos.add(goodInfo2);
+        goodInfos.add(goodInfo3);
+        goodInfos.add(goodInfo4);
+        goodInfos.add(goodInfo5);
+
+        List<String> goodsSubIds = goodInfos.stream().map(GoodInfo::getGoodsSubId).distinct().collect(Collectors.toList());
+        Console.show(JSON.toJSONString(goodsSubIds));
+
+        goodInfos = goodInfos.stream().filter(a -> !goodsSubIds.contains(a.getGoodsSubId())).collect(Collectors.toList());
+        Console.show(JSON.toJSONString(goodInfos));
+
+        /*Map<Long, GoodInfo> goodMap = new HashMap<>(1);
+        goodMap.put(1L, goodInfo1);
+        goodMap.put(2L, goodInfo3);
+        goodMap.put(3L, goodInfo4);
+        Console.show(goodMap.get(4L));
+
+        Long i = 4L;
+        Console.show(goodMap.get(1L) == null || goodMap.get(i ++) != null);
+        Console.show(i);
+
+        Set<Long> testSet = new HashSet<>();
+        testSet.add(1L);
+        testSet.add(3L);
+        GoodInfo testInfo = new GoodInfo();
+        testInfo.setTestList(new ArrayList<>(testSet));
+        testSet.clear();
+        Console.show(testInfo.getTestList());*/
+
     }
 
     public static class GoodInfo {
@@ -257,6 +339,16 @@ public class ToolTest {
         private String goodsUnit;
         /** 商品金额（单位：分） */
         private String goodsAmt;
+
+        private List<Long> testList;
+
+        public List<Long> getTestList() {
+            return testList;
+        }
+
+        public void setTestList(List<Long> testList) {
+            this.testList = testList;
+        }
 
         public String getGoodsSubId() {
             return goodsSubId;
