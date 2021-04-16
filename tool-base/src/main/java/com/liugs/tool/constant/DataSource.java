@@ -26,7 +26,7 @@ public class DataSource {
     }
 
     private static void encryptDbPassword() {
-        password = "123456";
+        password = "Db_PayCenter@";
 
         try {
             String[] keyPair = ConfigTools.genKeyPair(512);
@@ -34,7 +34,6 @@ public class DataSource {
             publicKey = keyPair[1];
             Console.show("私钥：" + privateKey);
             Console.show("公钥：" + publicKey);
-
             Console.show("私钥加密======================");
             password = ConfigTools.encrypt(privateKey, password);
             Console.show("加密后的password：" + password);
