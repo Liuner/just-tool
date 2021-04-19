@@ -41,7 +41,7 @@ public class ToolTest {
 
 //        sort();
 
-//        test();
+        test();
 
 //        listToMap();
 
@@ -51,7 +51,7 @@ public class ToolTest {
 
 //        testDecode();
 
-        testFile();
+//        testFile();
     }
 
     private static void testFile() throws IOException {
@@ -278,7 +278,7 @@ public class ToolTest {
         object.put("","");*/
 
 
-        List<GoodInfo> goodInfos = new ArrayList<>();
+        /*List<GoodInfo> goodInfos = new ArrayList<>();
         GoodInfo goodInfo1 = new GoodInfo();
         goodInfo1.setGoodsSubId("10001");
 
@@ -304,7 +304,7 @@ public class ToolTest {
         Console.show(JSON.toJSONString(goodsSubIds));
 
         goodInfos = goodInfos.stream().filter(a -> !goodsSubIds.contains(a.getGoodsSubId())).collect(Collectors.toList());
-        Console.show(JSON.toJSONString(goodInfos));
+        Console.show(JSON.toJSONString(goodInfos));*/
 
         /*Map<Long, GoodInfo> goodMap = new HashMap<>(1);
         goodMap.put(1L, goodInfo1);
