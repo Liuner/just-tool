@@ -11,6 +11,7 @@ import com.liugs.tool.encode.RsaEncodeTool;
 import com.tydic.payment.pay.rsa.util.EncodeUtil;
 import com.tydic.payment.pay.sdk.PayCenterSdkException;
 import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
 
 import java.io.*;
 import java.math.BigDecimal;
@@ -41,7 +42,7 @@ public class ToolTest {
 
 //        sort();
 
-        test();
+//        test();
 
 //        listToMap();
 
@@ -52,6 +53,49 @@ public class ToolTest {
 //        testDecode();
 
 //        testFile();
+
+        testMap();
+    }
+
+    private static void testMap() {
+        List<String> list = new ArrayList<>();
+        list.add("1,1,0");
+        list.add("1,1,1");
+        list.add("1,2,1");
+        list.add("1,2,2");
+        list.add("2,1,2");
+        list.add("2,2,2");
+        Map<String, Object> firstMap = new HashMap<>();
+        for (String item : list) {
+            LinkedList<String> linkedList = new LinkedList<>(Arrays.asList(item.split(",")));
+            getTreeMap(firstMap, linkedList);
+            Console.show(list.size());
+        }
+        Console.show(JSON.toJSONString(firstMap));
+    }
+
+    private static void getTreeMap(Map<String, Object> treeMap, LinkedList<String> categotyTreeList) {
+        if (!categotyTreeList.isEmpty()) {
+            String categoryId = categotyTreeList.removeFirst();
+            if (categotyTreeList.isEmpty()) {
+                treeMap.put(categoryId, categoryId);
+                return;
+            }
+            Map<String, Object> childMap;
+            try {
+                childMap = (Map<String, Object>) treeMap.get(categoryId);
+            } catch (NullPointerException e) {
+                childMap = new HashMap<>(1);
+            }
+
+            if (null == childMap) {
+                childMap = new HashMap<>(1);
+            }
+
+            treeMap.put(categoryId, childMap);
+
+            getTreeMap(childMap, categotyTreeList);
+        }
     }
 
     private static void testFile() throws IOException {
@@ -324,6 +368,11 @@ public class ToolTest {
         testSet.clear();
         Console.show(testInfo.getTestList());*/
 
+        String timeStr = "20210408162016";
+        DateTime tradeTime = DateTime.parse(timeStr, DateTimeFormat.forPattern("yyyyMMddHHmmss"));
+        Console.show(tradeTime.toString("yyyyMMdd"));
+        Console.show(tradeTime.toString("HHmmss"));
+
     }
 
     public static class GoodInfo {
@@ -339,6 +388,9 @@ public class ToolTest {
         private String goodsUnit;
         /** 商品金额（单位：分） */
         private String goodsAmt;
+
+        private String parameterCode;
+        private String parameterValue;
 
         private List<Long> testList;
 
