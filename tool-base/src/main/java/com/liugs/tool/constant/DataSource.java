@@ -20,13 +20,13 @@ public class DataSource {
         encryptDbPassword();
 
         Console.show("公钥解密======================");
-//        publicKey = "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBALjpdmH4PUA0oqwOMTsPH3WYarhCTqCACczRQ7TdVJE8b8Nx5uBooZgG0gjxBk/KKJbh8HmIvA4R2Zmv+jfij2ECAwEAAQ==";
-//        password = "Rjmir7Ga5URt0Jtpg2aLdsSFFzdalLXewGj6XOIGeGNx8gjQEic0YGmU26mQppabgCp0NGaorfQlepw+zhLopg==";
+        publicKey = "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAMaqr24gwvavpeW+4Wid05N+0NR+0rKAjQPuF0ergW5DoUQfJvlUFhZpauCUoqAoJhzotOvhABgxT07eac1Dy3cCAwEAAQ==";
+        password = "ATDew2wMmRzTsXt8VvxdLH/uS7XU0KceNZYfeDmy4AeGzYfHPUmJidsddOHXfr8PqsdgT48SBKK1GTRUaoSyLg==";
         decryptDbPassword(publicKey, password);
     }
 
     private static void encryptDbPassword() {
-        password = "i9RE9J1z";
+        password = "BJtydic_321";
 
         try {
             String[] keyPair = ConfigTools.genKeyPair(512);

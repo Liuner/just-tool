@@ -14,10 +14,10 @@ import com.liugs.tool.base.Console;
 public class ZNotifyCenterTest {
 
     public static void main(String[] args) {
-        sendEmail();
+//        sendEmail();
 //        dingdangMessage();
         //发送站内信
-//        sendInnerMessage();
+        sendInnerMessage();
         //查询站内信
 //        queryInnerMessage();
     }
@@ -49,6 +49,8 @@ public class ZNotifyCenterTest {
         //叮当UAT环境
 //        url = "http://47.92.109.10:9005/notifyApi/sendDingDangMessage";
 
+        url = "http://101.200.150.17:9005/notifyApi/sendDingDangMessage";
+
         JSONObject reqJson = new JSONObject();
         reqJson.put("phoneNumbers", "18523310756");
         reqJson.put("templateCode", "SMS_209162326");
@@ -74,9 +76,14 @@ public class ZNotifyCenterTest {
     private static void sendInnerMessage() {
         //迪易采测试环境
         String url = "http://39.105.66.173:9005/message/sendInnerMessage";
+//        url = "http://59.110.230.30:9005/message/sendInnerMessage";
+
+//        url = "http://59.110.230.30:9005/message/sendInnerMessage";
 
         //本机地址
-        url = "http://localhost:8090/message/sendInnerMessage";
+//        url = "http://localhost:8090/message/sendInnerMessage";
+
+        url = "http://101.200.150.17:9005/message/sendInnerMessage";
 
         JSONObject reqJson = new JSONObject();
         reqJson.put("sendid", "2");
@@ -87,7 +94,7 @@ public class ZNotifyCenterTest {
 
         Console.show(reqJson);
 
-        String result = HttpUtil.post(url, reqJson.toJSONString());
+        String result = HttpUtil.post(url, reqJson);
 
         Console.show(result);
     }
@@ -106,7 +113,7 @@ public class ZNotifyCenterTest {
         url = "http://39.106.107.161:9005/message/selectMessage";
 
         //本机测试
-        url = "http://localhost:8090/message/selectMessage";
+//        url = "http://localhost:8090/message/selectMessage";
 
         JSONObject reqJson = new JSONObject();
 
