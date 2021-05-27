@@ -65,13 +65,15 @@ public class ToolTest {
         list.add("1,2,2");
         list.add("2,1,2");
         list.add("2,2,2");
-        Map<String, Object> firstMap = new HashMap<>();
+      /*  Map<String, Object> firstMap = new HashMap<>();
         for (String item : list) {
             LinkedList<String> linkedList = new LinkedList<>(Arrays.asList(item.split(",")));
             getTreeMap(firstMap, linkedList);
             Console.show(list.size());
         }
-        Console.show(JSON.toJSONString(firstMap));
+        Console.show(JSON.toJSONString(firstMap));*/
+        List<Long> tests = list.stream().map(item -> Long.valueOf(item.substring(item.lastIndexOf(",") + 1))).collect(Collectors.toList());
+        Console.show(JSON.toJSON(tests));
     }
 
     private static void getTreeMap(Map<String, Object> treeMap, LinkedList<String> categotyTreeList) {
