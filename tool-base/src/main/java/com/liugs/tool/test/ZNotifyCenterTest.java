@@ -81,9 +81,9 @@ public class ZNotifyCenterTest {
 //        url = "http://59.110.230.30:9005/message/sendInnerMessage";
 
         //本机地址
-//        url = "http://localhost:8090/message/sendInnerMessage";
+        url = "http://localhost:8091/message/sendInnerMessage";
 
-        url = "http://101.200.150.17:9005/message/sendInnerMessage";
+//        url = "http://101.200.150.17:9005/message/sendInnerMessage";
 
         JSONObject reqJson = new JSONObject();
         reqJson.put("sendid", "2");

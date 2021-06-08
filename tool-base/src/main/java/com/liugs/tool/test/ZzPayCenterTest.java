@@ -29,11 +29,11 @@ public class ZzPayCenterTest {
 
     public static void main(String[] args) {
         /** 1.支付 2.退款 3.查询支付状态 4.查询退款状态 5.对账 6.实付 7.线下支付回调模拟 */
-        DEAL_TYPE = 3;
+        DEAL_TYPE = 1;
 
-        PAY_METHOD = "";
+        PAY_METHOD = "170";
         //支付单
-        ORDER_ID ="2021032602";
+        ORDER_ID ="2021052801";
         OUT_ORDER_ID = "LPay" + ORDER_ID;
 
         //退款单
@@ -74,8 +74,8 @@ public class ZzPayCenterTest {
 
     private static void payTest(String orderId, String merchantId, String payMethod) {
         //本机测试地址
-        String serverUrl = "http://localhost:8085/demo/testOrder";
-//        merchantId = "1296659250633871361";
+        String serverUrl = "http://localhost:8081/pay/rest/payPro/uniOrderEncrypt";
+        merchantId = "1296659250633871362";
 
         //本机测试亚朵，中核生产参数商户
 //        merchantId = "1296659250633871361";
@@ -106,7 +106,7 @@ public class ZzPayCenterTest {
 //        serverUrl = "http://172.16.100.52:10040/pay/rest/payPro/uniOrderEncrypt";
 //        merchantId = "1296659250633871361";
         /**=================================中核（二期）测试===========================================*/
-//        serverUrl = "http://172.16.100.62:10040/pay/rest/payPro/uniOrderEncrypt";
+        serverUrl = "http://172.16.100.62:10040/pay/rest/payPro/uniOrderEncrypt";
 //        merchantId = "1296659250633871361";
         /**===================================中核生产===============================================*/
 //        serverUrl = "https://www.cnncmall.com/pay/rest/payPro/uniOrderEncrypt";
@@ -126,12 +126,12 @@ public class ZzPayCenterTest {
         payCenterRequest.setTotalFee("1");
         payCenterRequest.setReqWay("1");
         payCenterRequest.setDetailName("支付中心下单测试");
-        payCenterRequest.setPayMethod(payMethod);
+//        payCenterRequest.setPayMethod(payMethod);
         payCenterRequest.setCreateIpAddress("113.204.98.253");
         payCenterRequest.setRemark("支付中心SDK测试");
         payCenterRequest.setCreateOperId("lgs20190822");
         payCenterRequest.setCreateOperIdName("刘贵生");
-        payCenterRequest.setRedirectUrl("https://www.baidu.com");
+        payCenterRequest.setRedirectUrl("https://www.jd.com");
         payCenterRequest.setNotifyUrl("http://liugs.test.utools.club/pay/rest/acceptPayCenterCallback");
         payCenterRequest.setUserAccount("21212121");
         payCenterRequest.setUserMobile("18523310756");
@@ -150,8 +150,9 @@ public class ZzPayCenterTest {
 //        //中核小程序
 //        busiReqJson.put("appletAppId", "wx7cfecb25a2403d03");
 //        busiReqJson.put("openId", "ohXgx5bSwV8kZ9aR47DkPxsg4yPY");
-        busiReqJson.put("payerAccNo", "1001280909004620106");
-        busiReqJson.put("payerAccName", "壁和患空诬椒魏输移氯");
+//        busiReqJson.put("payerAccNo", "1001280909004620106");
+//        busiReqJson.put("payerAccName", "壁和患空诬椒魏输移氯");
+        busiReqJson.put("offlinePayUrl", "www.baidu.com");
 
         String busiReqData = busiReqJson.toJSONString();
         Console.show("busiReqDataStr：" + busiReqData);
@@ -172,6 +173,7 @@ public class ZzPayCenterTest {
         Console.show("返回的参数：" + JSON.toJSONString(jsonObject));
         Console.show("HTML_BODY：" + jsonObject.getString("htmlBody"));
         Console.show("WEB_URL：" + jsonObject.getString("webUrl"));
+        Console.show("收银台地址：" + rsp.getUrl());
     }
 
     /**
@@ -185,6 +187,8 @@ public class ZzPayCenterTest {
 //        serverUrl = "http://39.105.201.15:10040/pay/rest/payPro/refundEncrypt";
         //亚朵测试环境 下单地址
 //        serverUrl = "http://39.106.87.128:10040/pay/rest/payPro/refundEncrypt";
+        //亚朵生产
+//        serverUrl = "http://118.31.166.138:30013/pay/rest/payPro/refundEncrypt";
 
         /**=================================中核（一期）测试===========================================*/
 //        serverUrl = "http://172.16.100.32:10040/pay/rest/payPro/refundEncrypt";
@@ -210,11 +214,12 @@ public class ZzPayCenterTest {
         PayCenterRefundRequest payCenterRequest = new PayCenterRefundRequest();
 
         payCenterRequest.setBusiCode("D500");
-        payCenterRequest.setOriOutOrderId("Pay2021012602");
-        payCenterRequest.setRefundFee("1");
+        payCenterRequest.setOriOutOrderId("210329ZFD11551");
+        payCenterRequest.setRefundFee("108000");
         payCenterRequest.setOrderType("06");
-        payCenterRequest.setRefundOutOrderId(refundOrderId);
-        payCenterRequest.setNotifyUrl("http://liugs.test.utools.club/pay/rest/acceptPayCenterCallback");
+        payCenterRequest.setRefundOutOrderId("830057093495005185");
+        payCenterRequest.setRefundReason("门店要求取消订单");
+        payCenterRequest.setNotifyUrl("http://192.168.0.183:10230/task/order/refundPay");
 
         //业务扩展参数
         JSONObject busiReqJson = new JSONObject();

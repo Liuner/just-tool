@@ -61,7 +61,7 @@ public class ToolTest {
         List<String> list = new ArrayList<>();
         list.add("1,1,0");
         list.add("1,1,1");
-        list.add("1,2");
+        list.add("1");
         list.add("1,2,2");
         list.add("2,1,2");
         list.add("2,2,2");
