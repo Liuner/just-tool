@@ -33,7 +33,7 @@ public class ZzPayCenterTest {
 
         PAY_METHOD = "170";
         //支付单
-        ORDER_ID ="2021052801";
+        ORDER_ID ="2021060806";
         OUT_ORDER_ID = "LPay" + ORDER_ID;
 
         //退款单
@@ -75,7 +75,7 @@ public class ZzPayCenterTest {
     private static void payTest(String orderId, String merchantId, String payMethod) {
         //本机测试地址
         String serverUrl = "http://localhost:8081/pay/rest/payPro/uniOrderEncrypt";
-        merchantId = "1296659250633871362";
+//        merchantId = "1296659250633871378";
 
         //本机测试亚朵，中核生产参数商户
 //        merchantId = "1296659250633871361";

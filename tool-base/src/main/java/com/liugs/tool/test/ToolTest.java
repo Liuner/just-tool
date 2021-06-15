@@ -11,12 +11,12 @@ import com.liugs.tool.encode.RsaEncodeTool;
 import com.tydic.payment.pay.rsa.util.EncodeUtil;
 import com.tydic.payment.pay.sdk.PayCenterSdkException;
 import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormat;
 
 import java.io.*;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 /**
@@ -42,7 +42,7 @@ public class ToolTest {
 
 //        sort();
 
-//        test();
+        test();
 
 //        listToMap();
 
@@ -54,7 +54,7 @@ public class ToolTest {
 
 //        testFile();
 
-        testMap();
+//        testMap();
     }
 
     private static void testMap() {
@@ -370,11 +370,19 @@ public class ToolTest {
         testSet.clear();
         Console.show(testInfo.getTestList());*/
 
-        String timeStr = "20210408162016";
-        DateTime tradeTime = DateTime.parse(timeStr, DateTimeFormat.forPattern("yyyyMMddHHmmss"));
-        Console.show(tradeTime.toString("yyyyMMdd"));
-        Console.show(tradeTime.toString("HHmmss"));
-
+//        String timeStr = "20210408162016";
+//        DateTime tradeTime = DateTime.parse(timeStr, DateTimeFormat.forPattern("yyyyMMddHHmmss"));
+//        Console.show(tradeTime.toString("yyyyMMdd"));
+//        Console.show(tradeTime.toString("HHmmss"));
+        String str = "20200305|000000000000014|999999999999999||20200306|2347586|700000000000003|CNY|0002CNY|0002|0000|20200305|220000|100||2|98|01||20200305|220000|232324|";
+        String[] splits = str.split(Pattern.quote("|"), -1);
+        Console.show(splits.length);
+        Console.show(JSON.toJSONString(Arrays.asList(splits)));
+        Map<Integer, String> map = new HashMap<>();
+        for (int i=0; i < splits.length; i ++) {
+            map.put(i, splits[i]);
+        }
+        Console.show(JSON.toJSONString(map));
     }
 
     public static class GoodInfo {

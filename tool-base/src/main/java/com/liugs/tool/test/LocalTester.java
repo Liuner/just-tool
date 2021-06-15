@@ -23,9 +23,9 @@ public class LocalTester {
 //    private static final String IP_HOST = "http://59.110.230.30:10140/fsc/test/";
 
     private static final String IP_HOST = "http://59.110.230.30:10130/dyc/common/";
-    private static final String TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEsImlhdCI6MTYyMzA1MTg4OTk0NCwibG9naW5Tb3VyY2UiOiJwYy13ZWIifQ.W4N4FOYCFlrVM1nwqAuoAEB3v4rTdLUkQ5SxDT4k2cg";
+    private static final String TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEsImlhdCI6MTYyMzIyNzY4NzY0OCwibG9naW5Tb3VyY2UiOiJwYy13ZWIifQ._DA0Tz7D-TZ6XaTrDM4sp38dfvHhvApW3W74ZZ8OfFw";
 
-    private static final String DEAL_TYPE = "EDIT_MERCHANT";
+    private static final String DEAL_TYPE = "CASHIE_DETAIL_QUERY";
 
     public static void main(String[] args) {
         OPERATE_TYPE operate_type = OPERATE_TYPE.valueOf(DEAL_TYPE);
@@ -106,7 +106,7 @@ public class LocalTester {
      */
     private static void queryPaymentDetail() {
         Map<String, Object> paraMap = new HashMap<>(1);
-        paraMap.put("paymentInsId", 1L);
+        paraMap.put("paymentInsId", 19L);
         doPost(paraMap, "queryPaymentDetail");
     }
 
@@ -140,12 +140,12 @@ public class LocalTester {
         Map<String, Object> paramMap = new HashMap<>();
         /**1 新增 2修改*/
         paramMap.put("operateType", "2");
-        paramMap.put("cashierTemplate", "3333344");
+        paramMap.put("cashierTemplate", "3333349");
         /**状态 0 停用 1 提交 2 暂存*/
         paramMap.put("flag", "0");
-        paramMap.put("cashierCode", "LIUGS_TEST_UPDATE");
-        paramMap.put("cashierTemplateName", "暂存测试模板");
-        paramMap.put("reqWay", "1");
+        paramMap.put("cashierCode", "编码007");
+        paramMap.put("cashierTemplateName", "名称123");
+        paramMap.put("reqWay", "5");
         paramMap.put("cashierTemplateUrl", "http://www.baidu.com");
         paramMap.put("remark", "接口测试");
         paramMap.put("name", "操作人");
@@ -199,7 +199,7 @@ public class LocalTester {
      */
     private static void queryMerchantList() {
         Map<String, Object> paramMap = new HashMap<>(1);
-        paramMap.put("merchantId", "597144223602405376");
+        paramMap.put("merchantId", "");
         doPost(paramMap, "queryMerchant");
     }
 
