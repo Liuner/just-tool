@@ -19,13 +19,13 @@ import java.util.Map;
  */
 public class LocalTester {
 
-//    private static final String IP_HOST = "http://127.0.0.1:8088/fsc/test/";
+    private static final String IP_HOST = "http://127.0.0.1:8088/fsc/test/";
 //    private static final String IP_HOST = "http://59.110.230.30:10140/fsc/test/";
 
-    private static final String IP_HOST = "http://59.110.230.30:10130/dyc/common/";
+//    private static final String IP_HOST = "http://59.110.230.30:10130/dyc/common/";
     private static final String TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEsImlhdCI6MTYyMzIyNzY4NzY0OCwibG9naW5Tb3VyY2UiOiJwYy13ZWIifQ._DA0Tz7D-TZ6XaTrDM4sp38dfvHhvApW3W74ZZ8OfFw";
 
-    private static final String DEAL_TYPE = "CASHIE_DETAIL_QUERY";
+    private static final String DEAL_TYPE = "CASHIE_EDIT";
 
     public static void main(String[] args) {
         OPERATE_TYPE operate_type = OPERATE_TYPE.valueOf(DEAL_TYPE);
@@ -57,6 +57,9 @@ public class LocalTester {
             case QUERY_MERCHANT_LIST:
                 queryMerchantList();
                 break;
+            case QUERY_MERCHANT_DETAIL:
+                queryMerchantDetail();
+                break;
             case CASHIER_QRY_PAYMENT_INS_LIST:
                 queryPaymentInsList();
                 break;
@@ -85,6 +88,15 @@ public class LocalTester {
                 finalMerchant();
                 break;
         }
+    }
+
+    /**
+     * 查询商户详情
+     */
+    private static void queryMerchantDetail() {
+        Map<String, Object> paramMap = new HashMap<>(1);
+        paramMap.put("merchantId", "604349176349589504");
+        doPost(paramMap, "qryMerchantDetail");
     }
 
     /**
@@ -147,7 +159,7 @@ public class LocalTester {
         paramMap.put("cashierTemplateName", "名称123");
         paramMap.put("reqWay", "5");
         paramMap.put("cashierTemplateUrl", "http://www.baidu.com");
-        paramMap.put("remark", "接口测试");
+        paramMap.put("remark", "");
         paramMap.put("name", "操作人");
         doPost(paramMap, "editCashierBaseInfo");
     }
@@ -528,6 +540,7 @@ public class LocalTester {
         EDIT_MERCHANT("EDIT_MERCHANT"),
         QUERY_SKU_CATEGORY("QUERY_SKU_CATEGORY"),
         QUERY_MERCHANT_LIST("QUERY_MERCHANT_LIST"),
+        QUERY_MERCHANT_DETAIL("QUERY_MERCHANT_DETAIL"),
         EDIT_PAY_CHANNEL("EDIT_PAY_CHANNEL"),
         CASHIER_QRY_PAYMENT_PAGE("CASHIER_QRY_PAYMENT_PAGE"),
         CASHIER_QRY_PAGE("CASHIER_QRY_PAGE"),

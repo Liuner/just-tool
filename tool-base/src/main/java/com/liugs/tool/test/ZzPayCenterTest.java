@@ -106,7 +106,7 @@ public class ZzPayCenterTest {
 //        serverUrl = "http://172.16.100.52:10040/pay/rest/payPro/uniOrderEncrypt";
 //        merchantId = "1296659250633871361";
         /**=================================中核（二期）测试===========================================*/
-        serverUrl = "http://172.16.100.62:10040/pay/rest/payPro/uniOrderEncrypt";
+//        serverUrl = "http://172.16.100.62:10040/pay/rest/payPro/uniOrderEncrypt";
 //        merchantId = "1296659250633871361";
         /**===================================中核生产===============================================*/
 //        serverUrl = "https://www.cnncmall.com/pay/rest/payPro/uniOrderEncrypt";
@@ -124,7 +124,7 @@ public class ZzPayCenterTest {
         payCenterRequest.setMerchantId(merchantId);
         payCenterRequest.setOutOrderId(orderId);
         payCenterRequest.setTotalFee("1");
-        payCenterRequest.setReqWay("1");
+        payCenterRequest.setReqWay("3");
         payCenterRequest.setDetailName("支付中心下单测试");
 //        payCenterRequest.setPayMethod(payMethod);
         payCenterRequest.setCreateIpAddress("113.204.98.253");
@@ -155,7 +155,7 @@ public class ZzPayCenterTest {
         busiReqJson.put("offlinePayUrl", "www.baidu.com");
 
         String busiReqData = busiReqJson.toJSONString();
-        Console.show("busiReqDataStr：" + busiReqData);
+//        Console.show("busiReqDataStr：" + busiReqData);
         payCenterRequest.setBusiReqData(busiReqData);
 
 

@@ -8,6 +8,7 @@ import com.liugs.tool.async.JustAsyncDataService;
 import com.liugs.tool.util.ToolRspUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Service;
  * @Date 2021/6/15 15:15:56
  */
 @Slf4j
+@EnableAsync
 @Service("justSyncDataService")
 public class JustSyncDataServiceImpl implements JustSyncDataService {
 
