@@ -33,15 +33,15 @@ public class ZzPayCenterTest {
 
         PAY_METHOD = "170";
         //支付单
-        ORDER_ID ="2021060806";
+        ORDER_ID ="2021070102";
         OUT_ORDER_ID = "LPay" + ORDER_ID;
 
         //退款单
-        ORDER_ID = "20210201";
+        ORDER_ID = "2021070101";
         OUT_REFUND_ORDER_ID = "LRefund"+ ORDER_ID;
 
         //实付单
-        ORDER_ID = "20210202";
+        ORDER_ID = "2021070101";
         OUT_REAL_PAY_ORDER_ID = "LPayReal" + ORDER_ID;
 
         switch (DEAL_TYPE) {
@@ -106,12 +106,16 @@ public class ZzPayCenterTest {
 //        serverUrl = "http://172.16.100.52:10040/pay/rest/payPro/uniOrderEncrypt";
 //        merchantId = "1296659250633871361";
         /**=================================中核（二期）测试===========================================*/
-//        serverUrl = "http://172.16.100.62:10040/pay/rest/payPro/uniOrderEncrypt";
+        serverUrl = "http://172.16.100.62:10040/pay/rest/payPro/uniOrderEncrypt";
 //        merchantId = "1296659250633871361";
         /**===================================中核生产===============================================*/
 //        serverUrl = "https://www.cnncmall.com/pay/rest/payPro/uniOrderEncrypt";
 //        merchantId = "1296659250633871361";
 //        merchantId = "1296659250633871362";
+
+        /**===================================迪易采测试===============================================*/
+        serverUrl = "http://39.105.66.173:10160/pay/rest/payPro/uniOrderEncrypt";
+        merchantId = "1407226085071540224";
 
         String busiCode = "D500";
         String publicKey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCGVZJK5Tyi4Z+ZqS8PNWrzog3vh8BDTEMtF/4HbXY+qW7wVuEVRFxxAV7uR+q9e+ieiLhdJkHhFD9tmzkvQud49BbY9OnTzH/We5cFBiYBm2mg0vqz+FGYMQ3bRZP0jCAYD9LbBYRGz4aVndEzhSLMDbeM08suwarMdTN5iF7eNQIDAQAB";
@@ -124,7 +128,7 @@ public class ZzPayCenterTest {
         payCenterRequest.setMerchantId(merchantId);
         payCenterRequest.setOutOrderId(orderId);
         payCenterRequest.setTotalFee("1");
-        payCenterRequest.setReqWay("3");
+        payCenterRequest.setReqWay("1");
         payCenterRequest.setDetailName("支付中心下单测试");
 //        payCenterRequest.setPayMethod(payMethod);
         payCenterRequest.setCreateIpAddress("113.204.98.253");
