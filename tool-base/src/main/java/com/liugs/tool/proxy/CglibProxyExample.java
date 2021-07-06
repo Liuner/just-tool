@@ -23,13 +23,13 @@ public class CglibProxyExample implements MethodInterceptor {
      * @date 2021/7/6 13:51:10
      */
     public Object getProxy(Class cls) {
-        //CGLIB 增强器
+        //CGLIB enhancer 增强对象
         Enhancer enhancer = new Enhancer();
-        //指定此代理的父类（被代理的类）
+        //设置增强类型
         enhancer.setSuperclass(cls);
-        //当代理的中的方法被调用后需要指明跳转到的自定义方法拦截器
+        //定义代理逻辑对象为当前对象，要求当前对象实现MethodInterceptor方法
         enhancer.setCallback(this);
-        //返回一个被代理类的子类
+        //生产并返回代理对象
         return enhancer.create();
     }
 
