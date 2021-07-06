@@ -1,4 +1,4 @@
-package com.liugs.tool.proxy;
+package com.liugs.tool.proxy.ccglib;
 
 import com.liugs.tool.base.Console;
 import org.springframework.cglib.proxy.Enhancer;
