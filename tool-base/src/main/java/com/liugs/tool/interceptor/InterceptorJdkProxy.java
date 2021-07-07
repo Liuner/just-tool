@@ -12,10 +12,10 @@ import java.lang.reflect.Proxy;
  */
 public class InterceptorJdkProxy implements InvocationHandler {
 
-    //被代理对象
+    /** 被代理对象 */
     private Object target;
-    //拦截器全限定名
-    private String interceptorClass = null;
+    /** 拦截器全限定名 */
+    private String interceptorClass;
 
     public InterceptorJdkProxy(Object target, String interceptorClass) {
         this.target = target;
