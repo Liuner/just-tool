@@ -1,4 +1,4 @@
-package factory;
+package com.liugs.tool.factory;
 
 import java.util.HashMap;
 import java.util.Map;
