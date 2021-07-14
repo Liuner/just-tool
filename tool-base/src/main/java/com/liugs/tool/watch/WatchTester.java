@@ -13,8 +13,8 @@ public class WatchTester {
         JingDongObserver jingdong = new JingDongObserver();
         TaoBaoObserver taobao = new TaoBaoObserver();
 
-        product.addObserver(jingdong);
-        product.addObserver(taobao);
+        product.addProductListObserver(jingdong);
+        product.addProductListObserver(taobao);
 
         product.addProduct("暗影精灵7");
         product.addProduct("幻16");
