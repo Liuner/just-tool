@@ -18,4 +18,7 @@ public class RespConstants {
 
     /**失败描述*/
     public static final String RESP_DESC_FAILED = "FAILED";
+
+    /**参数非法*/
+    public static final String REQUEST_PARAM_ERROR = "8008";
 }

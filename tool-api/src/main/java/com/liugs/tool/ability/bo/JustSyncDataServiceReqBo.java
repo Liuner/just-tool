@@ -18,7 +18,7 @@ public class JustSyncDataServiceReqBo implements Serializable {
     /**
      * 商户ID
      */
-    private Long merchantId;
+    private String merchantId;
     /**
      * 是否启用多线程
      */
